@@ -1,0 +1,30 @@
+---
+name: copy-button
+type: registry:ui
+title: Copy Button
+description: A button that copies a given string to the clipboard, showing a checkmark for 2 seconds after copying.
+registryDependencies:
+  - button
+---
+
+`CopyButton` copies a string (or the result of an async function) to the clipboard when clicked. It
+swaps its copy icon for a checkmark for two seconds after a successful copy, then falls back to the
+regular copy icon again.
+
+```tsx
+import { CopyButton } from "@/components/ui/copy-button";
+
+<CopyButton value="npx shadcn@latest add @assets/copy-button" />
+```
+
+Pass a function to `value` to compute the text lazily at click time:
+
+```tsx
+<CopyButton value={() => document.title} />
+```
+
+Set `showLabel` to render a text label alongside the icon:
+
+```tsx
+<CopyButton value="Copied!" showLabel copyLabel="Copy" copiedLabel="Copied" />
+```
