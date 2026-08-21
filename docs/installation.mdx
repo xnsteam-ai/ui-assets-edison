@@ -4,50 +4,61 @@ description: Install any UI Assets item into your project with the shadcn CLI.
 order: 1
 ---
 
-Every UI Assets item — component, hook, or block — installs with a single shadcn CLI command. There's
-nothing to configure up front; the CLI resolves the item, copies its source into your project, and
-adds any missing dependencies.
+Every UI Assets item installs with a single shadcn CLI command. There's nothing to configure up
+front; the CLI resolves the item, copies its source into your project, and adds any missing
+dependencies.
 
-## Install an item
+UI Assets is organized into four separate registries, each with its own namespace:
 
-Replace `acme-ui` below with the name of the item you want (for example `copy-button`):
+| Registry                          | Namespace          |
+| ---------------------------------- | ------------------ |
+| Stark Components                   | `@stark-components` |
+| Stark Icon + Logo + Illustration   | `@stark-icons`       |
+| Stark Font                         | `@stark-fonts`       |
+| Stark Images & Video               | `@stark-media`       |
 
-```sh
-npx shadcn@latest add acme-ui
-```
+## Add the registries to your project
 
-```sh
-pnpm dlx shadcn@latest add acme-ui
-```
-
-```sh
-yarn dlx shadcn@latest add acme-ui
-```
-
-```sh
-bunx --bun shadcn@latest add acme-ui
-```
-
-## Add UI Assets as a registry (optional)
-
-If you plan to install multiple items, add UI Assets to your project's `components.json` so you can
-reference items by short name:
+Add the registries you need to your project's `components.json`:
 
 ```json
 {
   "registries": {
-    "@assets": "https://ui-assets-edison.vercel.app/r/{name}.json"
+    "@stark-components": "https://ui-assets-edison.vercel.app/r/components/{name}.json",
+    "@stark-icons": "https://ui-assets-edison.vercel.app/r/icons/{name}.json",
+    "@stark-fonts": "https://ui-assets-edison.vercel.app/r/fonts/{name}.json",
+    "@stark-media": "https://ui-assets-edison.vercel.app/r/media/{name}.json"
   }
 }
 ```
 
+## Install an item
+
+Replace `acme-ui` below with the name of the item you want (for example `copy-button` from
+`@stark-components`):
+
 ```sh
-npx shadcn@latest add @assets/acme-ui
+npx shadcn@latest add @stark-components/acme-ui
 ```
+
+```sh
+pnpm dlx shadcn@latest add @stark-components/acme-ui
+```
+
+```sh
+yarn dlx shadcn@latest add @stark-components/acme-ui
+```
+
+```sh
+bunx --bun shadcn@latest add @stark-components/acme-ui
+```
+
+Swap the namespace prefix for `@stark-icons`, `@stark-fonts`, or `@stark-media` to install from
+those registries instead.
 
 You can also install any item directly by its full registry URL without adding it to
 `components.json` first:
 
 ```sh
-npx shadcn@latest add https://ui-assets-edison.vercel.app/r/acme-ui.json
+npx shadcn@latest add https://ui-assets-edison.vercel.app/r/components/acme-ui.json
 ```

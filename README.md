@@ -1,17 +1,27 @@
 # UI Assets — Registry
 
-A collection of copy-paste dev utility components, hooks, and blocks for React, installable with the
-shadcn CLI.
+UI Assets is organized into four sub-registries, each installable with the shadcn CLI under its own
+namespace:
+
+| Registry                           | Namespace            | Domain folder |
+| ----------------------------------- | --------------------- | -------------- |
+| Stark Components                    | `@stark-components`   | `components`   |
+| Stark Icon + Logo + Illustration    | `@stark-icons`         | `icons`         |
+| Stark Font                          | `@stark-fonts`         | `fonts`         |
+| Stark Images & Video                | `@stark-media`         | `media`         |
 
 ```sh
-npx shadcn@latest add https://ui-assets-edison.vercel.app/r/copy-button.json
+npx shadcn@latest add https://ui-assets-edison.vercel.app/r/components/copy-button.json
 ```
 
 ## Structure
 
-- `config.ts` — registry identity (name, namespace, homepage, repository URL).
+- `config.ts` — site identity (`registryConfig`) plus per-registry identity for the four domains
+  (`subRegistries`: name, namespace, description).
 - `docs/` — public documentation pages.
-- `items/` — installable source: `items/components`, `items/hooks`, `items/blocks`.
+- `items/{domain}/{type}/{name}/` — installable source, one top-level folder per domain
+  (`components`, `icons`, `fonts`, `media`), each further split by item type
+  (`components`, `hooks`, `blocks`, `fonts`, `files`, ...).
 
 ## Consuming this repo
 

@@ -4,10 +4,13 @@ description: Scaffold and author installable registry items under registry/items
 order: 2
 ---
 
-Registry items live under `registry/items/**` and can be installed by shadcn-compatible CLIs. Start new items with the scaffold command so the folder, `_registry.mdx`, source file, metadata, and generated registry JSON paths follow the template conventions.
+Registry items live under `registry/items/{domain}/**`, where `{domain}` is one of the four
+sub-registries — `components`, `icons`, `fonts`, `media` — and can be installed by shadcn-compatible
+CLIs. Start new items with the scaffold command so the folder, `_registry.mdx`, source file,
+metadata, and generated registry JSON paths follow the template conventions.
 
 ```sh
-bun --bun ./scripts/new.ts --type registry:ui --name example-card --description "A compact card component."
+bun --bun ./scripts/new.ts --domain components --type registry:ui --name example-card --description "A compact card component."
 ```
 
 Or, run the command without flags if you want an interactive prompt (recommended).
@@ -20,29 +23,42 @@ bun --bun ./scripts/new.ts
   [Make sure Bun is installed before running these scripts.](https://bun.com/)
 </Callout>
 
+## Registries (domains)
+
+Every item belongs to exactly one of the four sub-registries, chosen by its top-level folder under
+`registry/items/`:
+
+| Domain       | Registry                         | Namespace           |
+| ------------ | --------------------------------- | -------------------- |
+| `components` | Stark Components                  | `@stark-components`  |
+| `icons`      | Stark Icon + Logo + Illustration  | `@stark-icons`        |
+| `fonts`      | Stark Font                        | `@stark-fonts`        |
+| `media`      | Stark Images & Video              | `@stark-media`        |
+
 ## Item Types
 
-Choose the registry type from what the item installs:
+Choose the registry type from what the item installs; this becomes the type-folder inside the
+domain, `registry/items/{domain}/{type-folder}/**`:
 
-| Type                 | Use For                                   | Folder                         |
-| -------------------- | ----------------------------------------- | ------------------------------ |
-| `registry:ui`        | Shadcn-style UI components                | `registry/items/components/**` |
-| `registry:component` | Components outside `components/ui`        | `registry/items/components/**` |
-| `registry:block`     | Larger composed UI patterns               | `registry/items/blocks/**`     |
-| `registry:hook`      | React hooks                               | `registry/items/hooks/**`      |
-| `registry:lib`       | Utility or helper modules                 | `registry/items/lib/**`        |
-| `registry:page`      | App page files with explicit targets      | `registry/items/pages/**`      |
-| `registry:file`      | Other files with explicit install targets | `registry/items/files/**`      |
-| `registry:style`     | Style-level CSS and dependency metadata   | `registry/items/styles/**`     |
-| `registry:theme`     | Theme CSS variables                       | `registry/items/themes/**`     |
-| `registry:font`      | Font metadata                             | `registry/items/fonts/**`      |
-| `registry:base`      | Design system base configuration          | `registry/items/bases/**`      |
-| `registry:item`      | Universal or metadata-only items          | `registry/items/items/**`      |
+| Type                 | Use For                                   | Type folder |
+| -------------------- | ----------------------------------------- | ------------ |
+| `registry:ui`        | Shadcn-style UI components                | `components` |
+| `registry:component` | Components outside `components/ui`        | `components` |
+| `registry:block`     | Larger composed UI patterns               | `blocks`     |
+| `registry:hook`      | React hooks                               | `hooks`      |
+| `registry:lib`       | Utility or helper modules                 | `lib`        |
+| `registry:page`      | App page files with explicit targets      | `pages`      |
+| `registry:file`      | Other files with explicit install targets | `files`      |
+| `registry:style`     | Style-level CSS and dependency metadata   | `styles`     |
+| `registry:theme`     | Theme CSS variables                       | `themes`     |
+| `registry:font`      | Font metadata                             | `fonts`      |
+| `registry:base`      | Design system base configuration          | `bases`      |
+| `registry:item`      | Universal or metadata-only items          | `items`      |
 
 The scaffold creates each item in its own folder:
 
 ```text
-registry/items/components/example-card/
+registry/items/components/components/example-card/
   _registry.mdx
   _preview.tsx
   example-card.tsx
@@ -53,15 +69,16 @@ registry/items/components/example-card/
 Use flags for agent-friendly and CI-friendly scaffolding:
 
 ```sh
-bun --bun ./scripts/new.ts --type registry:block --name stats-panel --description "A metrics panel with reusable sample data."
-bun --bun ./scripts/new.ts --type registry:ui --name prompt-input --description "An AI prompt input." --target @ui/ai/prompt-input.tsx
-bun --bun ./scripts/new.ts --type registry:page --name dashboard-page --description "A starter dashboard page." --target app/dashboard/page.tsx
-bun --bun ./scripts/new.ts --type registry:file --name chart-theme --description "Shared chart theme tokens." --target styles/chart-theme.css --file-extension css
-bun --bun ./scripts/new.ts --type registry:font --name font-inter --description "Inter font metadata." --font-family "'Inter Variable', sans-serif" --font-import Inter --font-variable=--font-sans
+bun --bun ./scripts/new.ts --domain components --type registry:block --name stats-panel --description "A metrics panel with reusable sample data."
+bun --bun ./scripts/new.ts --domain components --type registry:ui --name prompt-input --description "An AI prompt input." --target @ui/ai/prompt-input.tsx
+bun --bun ./scripts/new.ts --domain components --type registry:page --name dashboard-page --description "A starter dashboard page." --target app/dashboard/page.tsx
+bun --bun ./scripts/new.ts --domain media --type registry:file --name chart-theme --description "Shared chart theme tokens." --target styles/chart-theme.css --file-extension css
+bun --bun ./scripts/new.ts --domain fonts --type registry:font --name font-inter --description "Inter font metadata." --font-family "'Inter Variable', sans-serif" --font-import Inter --font-variable=--font-sans
 ```
 
 Supported flags:
 
+- `--domain`: which sub-registry to publish under (`components`, `icons`, `fonts`, `media`). Defaults to `components`.
 - `--type`: registry item type. Defaults to `registry:ui`.
 - `--name`: required kebab-case item name.
 - `--title`: optional public title. Defaults from the name.
