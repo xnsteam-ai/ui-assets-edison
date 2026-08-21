@@ -4,5 +4,5 @@ export const registryConfig = {
   namespace: "@assets",
   description: "A collection of copy-paste dev utility components, hooks, and blocks for React.",
   homepage: "https://ui-assets-edison.vercel.app",
-  repositoryUrl: "https://github.com/xnsteam-ai/ui-assets-registry",
+  repositoryUrl: "https://github.com/xnsteam-ai/ui-assets-edison",
 } as const;
