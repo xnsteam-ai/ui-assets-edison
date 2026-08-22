@@ -1,7 +1,7 @@
 "use client";
 
-import { ExampleCard } from "./example-card";
+import { ExampleCard, type ExampleCardProps } from "./example-card";
 
-export function Preview() {
-  return <ExampleCard />;
+export function Preview(props: ExampleCardProps) {
+  return <ExampleCard {...props} />;
 }
