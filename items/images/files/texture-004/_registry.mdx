@@ -5,12 +5,101 @@ title: Violet Rise
 description: A tall violet bloom lifting from a near-black base, softly grained.
 meta:
   category: "Texture"
-  prompt: "A tall violet glow rising from a dark base, soft falloff, fine grain, abstract vertical background, 3:5"
   promptKind: suggested
   asset: "texture-004.jpg"
   width: 900
   height: 1500
   source: "d-violet-tall.jpg"
+  prompt: |
+    Ultra-clean abstract light-bloom artwork in a tall vertical format, built as a single column of
+    violet emission rising out of a deep near-black base, with absolutely no subject, no figure, no
+    object, no horizon and no visible geometry. The bottom quarter of the frame is a dense neutral
+    near-black around #08060D, retaining a faint cool violet undertone so the shadows stay alive
+    rather than crushed flat. From just above that base a broad, diffuse vertical bloom lifts upward
+    and outward, intensifying through a deep grape purple near #4B2A7A into a luminous soft violet
+    peaking around #9B7BE8 in the upper-middle third, then dissolving gently back toward the darker
+    ground at the very top of the frame. The falloff is exponential and extremely soft in every
+    direction, wide at the shoulders and never forming a beam, a cone, a shaft, a ring or any hard
+    edge — this is ambient emission filling a volume, not a light aimed at the viewer. Left and right
+    margins fade completely to the base black before reaching the frame edge, and both bottom corners
+    remain fully dark and perfectly even with no corner lift. Over the whole field lies a fine
+    monochromatic film grain at roughly 5% opacity, weighted heavier into the dark surround where
+    real film noise lives and thinning across the luminous core, organic and photographic rather than
+    digital sensor noise. The surface finish is matte and velvety with zero specular sheen, zero
+    gloss and zero reflection. Colour grading is cool and clean with lifted-but-controlled blacks, no
+    crushing, generous saturation held just short of neon, and a completely smooth tonal ramp from
+    core to corner. Rendered as a pure design asset intended as a tall background plate for UI, dark
+    editorial layout and cover work. Ultra high resolution, 8K, zero compression artefacts, zero
+    banding anywhere across the falloff.
+  promptSpec: |
+    {
+      "output": {
+        "aspect_ratio": "3:5",
+        "orientation": "vertical",
+        "resolution": "ultra high detail",
+        "intended_use": "tall dark background plate for UI, editorial and cover layouts"
+      },
+      "subject": {
+        "present": false,
+        "instruction": "Generate a pure abstract colour field. No people, no objects, no geometry, no text, no logo."
+      },
+      "composition": {
+        "type": "vertical bloom over dark ground",
+        "origin": "just above the bottom quarter, centred horizontally",
+        "direction": "rising upward and outward",
+        "falloff": "exponential, soft in every direction",
+        "edges": "left, right and bottom corners fully dark and even",
+        "forbidden_shapes": ["beam", "cone", "shaft", "ring", "hard edge"]
+      },
+      "color": {
+        "base": "#08060D",
+        "bloom_mid": "#4B2A7A",
+        "bloom_core": "#9B7BE8",
+        "interpolation": "perceptual (Oklab)",
+        "black_point": "lifted, not crushed",
+        "saturation": "generous, held short of neon",
+        "banding": "none"
+      },
+      "texture": {
+        "grain_type": "organic film grain",
+        "grain_opacity": "5%",
+        "grain_distribution": "heavier in the dark surround, thinner across the core",
+        "digital_noise": "none"
+      },
+      "surface": {
+        "finish": "matte velvet",
+        "specular": "none",
+        "vignette": "none beyond the natural falloff",
+        "lens_effects": "none"
+      },
+      "quality": {
+        "sharpness": "smooth, no artificial sharpening",
+        "compression_artifacts": "none",
+        "tonal_ramp": "perfectly continuous from core to corner"
+      },
+      "negative_prompt": [
+        "subject",
+        "person",
+        "object",
+        "geometry",
+        "light beam",
+        "god rays",
+        "spotlight cone",
+        "ring",
+        "lens flare",
+        "bokeh",
+        "text",
+        "watermark",
+        "logo",
+        "banding",
+        "posterization",
+        "crushed blacks",
+        "neon glow",
+        "digital noise",
+        "low resolution",
+        "jpeg artifacts"
+      ]
+    }
 ---
 
 An original, procedurally generated background texture. The prompt above is **suggested** — a

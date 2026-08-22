@@ -5,12 +5,97 @@ title: Dusk Column
 description: A tall dusk gradient sweeping from deep indigo into warm terracotta, finely grained.
 meta:
   category: "Texture"
-  prompt: "A tall vertical gradient from deep indigo to warm terracotta, soft film grain, no subject, abstract background, 9:14"
   promptKind: suggested
   asset: "texture-001.jpg"
   width: 900
   height: 1400
   source: "a-dusk-tall.jpg"
+  prompt: |
+    Ultra-clean abstract gradient background artwork in a tall vertical format, composed as a single
+    uninterrupted vertical sweep of colour with absolutely no subject, no figure, no object and no
+    horizon line. The field begins at the very top of the frame in a deep saturated indigo — a cool
+    midnight blue-violet reading approximately #1B1B3A — and descends in one continuous, perfectly
+    smooth transition through a muted plum-mauve midpoint around #6B4A5A before resolving at the
+    bottom edge into a warm dusty terracotta near #C9714A. The transition is strictly linear along
+    the vertical axis, top to bottom, with no banding, no visible stops, no hard edges and no
+    secondary light source anywhere in the frame. Colour interpolation is performed in perceptual
+    space so the midtones stay rich and never wash out to grey. Over the entire field lies a fine
+    monochromatic film grain at roughly 4% opacity, evenly distributed, organic and photographic
+    rather than digital noise — the texture of a scanned medium-format negative, not sensor noise.
+    The grain is slightly more visible in the darker upper third, exactly as real film behaves. The
+    overall surface finish is matte and powdery with zero specular sheen, zero gloss, zero vignette
+    and zero visible lighting direction. Edge-to-edge the image is completely flat and even, with no
+    corner darkening and no centre hotspot, so the artwork can be cropped anywhere without revealing
+    a focal point. Colour grading is warm-shifted at the base and cool-shifted at the crown, giving a
+    subtle dusk-to-dawn temperature split across the length of the frame. Rendered as a pure design
+    asset intended as a background plate for UI, editorial layout and cover work. Ultra high
+    resolution, 8K, zero compression artefacts, zero JPEG blocking, perfectly smooth tonal ramp.
+  promptSpec: |
+    {
+      "output": {
+        "aspect_ratio": "9:14",
+        "orientation": "vertical",
+        "resolution": "ultra high detail",
+        "intended_use": "background plate for UI, editorial and cover layouts"
+      },
+      "subject": {
+        "present": false,
+        "instruction": "Generate a pure abstract colour field. No people, no objects, no horizon, no text, no logo, no focal point."
+      },
+      "composition": {
+        "type": "linear gradient",
+        "axis": "vertical",
+        "direction": "top to bottom",
+        "focal_point": "none",
+        "croppable": "any region of the frame must read the same"
+      },
+      "color": {
+        "stop_top": "#1B1B3A",
+        "stop_mid": "#6B4A5A",
+        "stop_bottom": "#C9714A",
+        "interpolation": "perceptual (Oklab)",
+        "banding": "none",
+        "temperature_split": "cool at top, warm at bottom"
+      },
+      "texture": {
+        "grain_type": "organic film grain",
+        "grain_opacity": "4%",
+        "grain_distribution": "even, slightly heavier in shadows",
+        "digital_noise": "none"
+      },
+      "surface": {
+        "finish": "matte",
+        "specular": "none",
+        "vignette": "none",
+        "lighting_direction": "none",
+        "edge_evenness": "perfectly flat edge to edge"
+      },
+      "quality": {
+        "sharpness": "smooth, no artificial sharpening",
+        "compression_artifacts": "none",
+        "tonal_ramp": "perfectly continuous"
+      },
+      "negative_prompt": [
+        "subject",
+        "person",
+        "face",
+        "object",
+        "horizon line",
+        "text",
+        "watermark",
+        "logo",
+        "signature",
+        "banding",
+        "posterization",
+        "colour stops visible",
+        "vignette",
+        "lens flare",
+        "digital noise",
+        "oversaturated colours",
+        "low resolution",
+        "jpeg artifacts"
+      ]
+    }
 ---
 
 An original, procedurally generated background texture. The prompt above is **suggested** — a

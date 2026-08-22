@@ -45,3 +45,18 @@ The preview dialog offers four exports per image:
 | PNG | Genuine re-encode via canvas. |
 | SVG wrapper | An SVG embedding the raster as a data URI. **Not a vectorization** — same pixels, larger file. |
 | Prompt as Markdown | Title, description, category and prompt as a `.md` file. |
+
+## Prompt structure
+
+Every image carries two prompts in `meta`, describing the same picture:
+
+- `prompt` — a long prose paragraph, ordered: medium and format → composition and crop → subject
+  detail → colour (named tones with hex values) → lighting → surface and grain → camera → grading
+  → output. State what must *not* appear as explicitly as what must.
+- `promptSpec` — the machine-readable twin, a JSON object with the same information plus a
+  `negative_prompt` array.
+
+Both exist so a user can paste either one into a different generator and land on the same image
+without having to restructure anything. Keep them in sync: if you edit one, edit the other.
+
+`promptKind: suggested` marks a prompt as a reconstruction, never a recovered original.

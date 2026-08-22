@@ -5,12 +5,98 @@ title: Mint Bloom
 description: A soft radial bloom of mint green rising out of a near-black square field.
 meta:
   category: "Texture"
-  prompt: "A soft radial glow of mint green emerging from a near-black background, subtle grain, abstract, square"
   promptKind: suggested
   asset: "texture-002.jpg"
   width: 1200
   height: 1200
   source: "b-mint-bloom.jpg"
+  prompt: |
+    Ultra-clean abstract radial glow artwork in a perfect square format, built as a single soft bloom
+    of light emerging from an almost-black ground, with no subject, no figure, no object and no
+    geometry of any kind. The base field is a deep neutral near-black around #0B0F0D — not pure
+    black, retaining a faint cool green undertone so the shadows stay alive rather than crushed. From
+    a point slightly below and left of exact centre, a diffuse circular bloom of soft mint green
+    rises outward, peaking at approximately #7FD9AE at its core and falling away through a
+    desaturated sea green near #2E6B54 before dissolving completely into the black ground well before
+    it reaches any edge. The falloff curve is gentle and exponential, not linear — bright and
+    generous through the inner third, then decaying smoothly and endlessly so there is no visible
+    boundary, no ring, no hard circle and no lens-like halo. The bloom is perfectly symmetrical in
+    its dispersion with no directional bias, reading as ambient emission rather than a light source
+    pointed at the viewer. All four corners of the frame remain fully dark and completely even, with
+    no corner lift and no stray glow. Over the entire field lies a fine monochromatic film grain at
+    roughly 5% opacity, weighted more heavily into the dark surround where real film noise lives and
+    thinning across the bright core, organic and photographic rather than digital sensor noise. The
+    surface finish is matte and velvety with zero specular sheen, zero gloss and zero reflection.
+    Colour grading is cool and clean with lifted-but-controlled blacks, no crushing, and a completely
+    smooth tonal ramp from core to corner. Rendered as a pure design asset intended as a background
+    plate for UI, dark editorial layout and cover work. Ultra high resolution, 8K, zero compression
+    artefacts, zero banding across the falloff.
+  promptSpec: |
+    {
+      "output": {
+        "aspect_ratio": "1:1",
+        "orientation": "square",
+        "resolution": "ultra high detail",
+        "intended_use": "dark background plate for UI, editorial and cover layouts"
+      },
+      "subject": {
+        "present": false,
+        "instruction": "Generate a pure abstract colour field. No people, no objects, no geometry, no text, no logo."
+      },
+      "composition": {
+        "type": "radial gradient",
+        "origin": "slightly below and left of centre",
+        "falloff": "exponential, dissolving before the frame edge",
+        "edges": "all four corners fully dark and even",
+        "focal_point": "soft bloom core, no hard boundary"
+      },
+      "color": {
+        "ground": "#0B0F0D",
+        "bloom_core": "#7FD9AE",
+        "bloom_mid": "#2E6B54",
+        "interpolation": "perceptual (Oklab)",
+        "black_point": "lifted, not crushed",
+        "banding": "none"
+      },
+      "texture": {
+        "grain_type": "organic film grain",
+        "grain_opacity": "5%",
+        "grain_distribution": "heavier in the dark surround, thinner across the core",
+        "digital_noise": "none"
+      },
+      "surface": {
+        "finish": "matte velvet",
+        "specular": "none",
+        "vignette": "none beyond the natural falloff",
+        "halo_or_ring": "none",
+        "lens_effects": "none"
+      },
+      "quality": {
+        "sharpness": "smooth, no artificial sharpening",
+        "compression_artifacts": "none",
+        "tonal_ramp": "perfectly continuous from core to corner"
+      },
+      "negative_prompt": [
+        "subject",
+        "person",
+        "object",
+        "geometry",
+        "circle outline",
+        "ring",
+        "lens flare",
+        "bokeh",
+        "text",
+        "watermark",
+        "logo",
+        "banding",
+        "posterization",
+        "crushed blacks",
+        "digital noise",
+        "oversaturated colours",
+        "low resolution",
+        "jpeg artifacts"
+      ]
+    }
 ---
 
 An original, procedurally generated background texture. The prompt above is **suggested** — a

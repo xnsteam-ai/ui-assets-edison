@@ -5,12 +5,100 @@ title: Slate Square
 description: A cool slate gradient on a diagonal, from charcoal into pale blue-grey.
 meta:
   category: "Texture"
-  prompt: "A diagonal gradient from charcoal to pale blue-grey, matte grain, abstract square background"
   promptKind: suggested
   asset: "texture-006.jpg"
   width: 1100
   height: 1100
   source: "f-slate-square.jpg"
+  prompt: |
+    Ultra-clean abstract gradient background artwork in a perfect square format, composed as one
+    uninterrupted diagonal sweep of cool neutral colour with absolutely no subject, no figure, no
+    object, no horizon and no visible geometry. The gradient runs corner to corner on a true 45
+    degree diagonal from the lower-left to the upper-right, beginning in a deep charcoal around
+    #21262B and travelling through a mid slate blue-grey near #5A6670 before resolving into a pale
+    cool mist around #C9D2D9 at the upper-right corner. The transition is strictly linear along that
+    diagonal axis, perfectly smooth, with no banding, no visible colour stops, no hard edges and no
+    secondary light source anywhere in the frame. Colour interpolation is performed in perceptual
+    space so the midtones hold a clean blue-grey and never drift green, purple or muddy. Over the
+    entire field lies a fine monochromatic film grain at roughly 4% opacity, evenly distributed and
+    organic — the texture of scanned black-and-white negative laid over colour, not digital sensor
+    noise — sitting slightly heavier in the dark charcoal corner exactly as real film behaves. The
+    surface finish is matte and concrete-like with zero specular sheen, zero gloss, zero vignette and
+    no discernible lighting direction. The frame is completely even edge to edge with no corner
+    darkening beyond the gradient itself and no centre hotspot, so any crop reads the same and the
+    artwork carries no focal point. Colour grading is cool, neutral and low contrast, with clean
+    highlights that never blow out to pure white and shadows that never block up to pure black.
+    Rendered as a pure design asset intended as a neutral background plate for UI, editorial layout
+    and cover work. Ultra high resolution, 8K, zero compression artefacts, perfectly smooth tonal
+    ramp.
+  promptSpec: |
+    {
+      "output": {
+        "aspect_ratio": "1:1",
+        "orientation": "square",
+        "resolution": "ultra high detail",
+        "intended_use": "neutral background plate for UI, editorial and cover layouts"
+      },
+      "subject": {
+        "present": false,
+        "instruction": "Generate a pure abstract colour field. No people, no objects, no horizon, no text, no logo, no focal point."
+      },
+      "composition": {
+        "type": "linear gradient",
+        "axis": "diagonal",
+        "angle": "45 degrees",
+        "direction": "lower-left to upper-right",
+        "focal_point": "none",
+        "croppable": "any region of the frame must read the same"
+      },
+      "color": {
+        "stop_start": "#21262B",
+        "stop_mid": "#5A6670",
+        "stop_end": "#C9D2D9",
+        "interpolation": "perceptual (Oklab)",
+        "banding": "none",
+        "cast": "cool neutral blue-grey, never green, purple or muddy"
+      },
+      "texture": {
+        "grain_type": "organic film grain",
+        "grain_opacity": "4%",
+        "grain_distribution": "even, slightly heavier in the dark corner",
+        "digital_noise": "none"
+      },
+      "surface": {
+        "finish": "matte, concrete-like",
+        "specular": "none",
+        "vignette": "none",
+        "lighting_direction": "none",
+        "edge_evenness": "perfectly flat edge to edge"
+      },
+      "quality": {
+        "contrast": "low",
+        "highlights": "clean, never pure white",
+        "shadows": "soft, never pure black",
+        "compression_artifacts": "none",
+        "tonal_ramp": "perfectly continuous"
+      },
+      "negative_prompt": [
+        "subject",
+        "person",
+        "object",
+        "concrete wall",
+        "texture photograph",
+        "horizon line",
+        "text",
+        "watermark",
+        "logo",
+        "banding",
+        "posterization",
+        "colour stops visible",
+        "vignette",
+        "digital noise",
+        "colour cast",
+        "low resolution",
+        "jpeg artifacts"
+      ]
+    }
 ---
 
 An original, procedurally generated background texture. The prompt above is **suggested** — a

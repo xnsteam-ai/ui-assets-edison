@@ -5,12 +5,99 @@ title: Sand Bank
 description: A wide warm gradient from pale sand into clay on a shallow diagonal.
 meta:
   category: "Texture"
-  prompt: "A wide gradient from pale sand to clay brown on a shallow diagonal, matte grained finish, abstract banner, 16:9"
   promptKind: suggested
   asset: "texture-003.jpg"
   width: 1600
   height: 900
   source: "c-sand-wide.jpg"
+  prompt: |
+    Ultra-clean abstract gradient background artwork in a wide cinematic format, composed as one
+    uninterrupted diagonal sweep of warm earth colour with absolutely no subject, no figure, no
+    object, no horizon and no visible geometry. The gradient runs on a shallow diagonal from the
+    upper-left corner to the lower-right corner at roughly 20 degrees below horizontal, beginning in
+    a pale warm sand around #EDE0CC and travelling through a soft biscuit midtone near #D6B893 before
+    settling into a deep muted clay brown around #9A6B4A at the far corner. The transition is
+    strictly linear along that diagonal axis, perfectly smooth, with no banding, no visible colour
+    stops, no hard edges and no secondary light source anywhere in the frame. Colour interpolation is
+    performed in perceptual space so the midtones stay warm and creamy and never drift muddy or grey.
+    Over the whole field lies a fine monochromatic film grain at roughly 4% opacity, evenly
+    distributed and organic — the texture of scanned large-format colour negative, not digital sensor
+    noise — sitting very slightly heavier in the darker clay corner exactly as real film behaves. The
+    surface finish is matte and papery with zero specular sheen, zero gloss, zero vignette and no
+    discernible lighting direction. The frame is completely even edge to edge with no corner
+    darkening and no centre hotspot, so any crop of the artwork reads the same and carries no focal
+    point. Colour grading is warm throughout, low contrast, gentle, with clean highlights that never
+    blow out and soft shadows that never block up. Rendered as a pure design asset intended as a wide
+    background plate for UI hero sections, editorial banners and cover work. Ultra high resolution,
+    8K, zero compression artefacts, perfectly smooth tonal ramp.
+  promptSpec: |
+    {
+      "output": {
+        "aspect_ratio": "16:9",
+        "orientation": "landscape",
+        "resolution": "ultra high detail",
+        "intended_use": "wide background plate for hero sections and editorial banners"
+      },
+      "subject": {
+        "present": false,
+        "instruction": "Generate a pure abstract colour field. No people, no objects, no horizon, no text, no logo, no focal point."
+      },
+      "composition": {
+        "type": "linear gradient",
+        "axis": "diagonal",
+        "angle": "20 degrees below horizontal",
+        "direction": "upper-left to lower-right",
+        "focal_point": "none",
+        "croppable": "any region of the frame must read the same"
+      },
+      "color": {
+        "stop_start": "#EDE0CC",
+        "stop_mid": "#D6B893",
+        "stop_end": "#9A6B4A",
+        "interpolation": "perceptual (Oklab)",
+        "banding": "none",
+        "cast": "warm throughout, never muddy or grey"
+      },
+      "texture": {
+        "grain_type": "organic film grain",
+        "grain_opacity": "4%",
+        "grain_distribution": "even, slightly heavier in the darker corner",
+        "digital_noise": "none"
+      },
+      "surface": {
+        "finish": "matte, papery",
+        "specular": "none",
+        "vignette": "none",
+        "lighting_direction": "none",
+        "edge_evenness": "perfectly flat edge to edge"
+      },
+      "quality": {
+        "contrast": "low",
+        "highlights": "clean, never clipped",
+        "shadows": "soft, never blocked up",
+        "compression_artifacts": "none",
+        "tonal_ramp": "perfectly continuous"
+      },
+      "negative_prompt": [
+        "subject",
+        "person",
+        "object",
+        "horizon line",
+        "sand dunes",
+        "landscape",
+        "text",
+        "watermark",
+        "logo",
+        "banding",
+        "posterization",
+        "colour stops visible",
+        "vignette",
+        "digital noise",
+        "muddy midtones",
+        "low resolution",
+        "jpeg artifacts"
+      ]
+    }
 ---
 
 An original, procedurally generated background texture. The prompt above is **suggested** — a

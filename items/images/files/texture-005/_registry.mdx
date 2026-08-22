@@ -5,12 +5,100 @@ title: Ember Band
 description: A wide ember gradient running from deep maroon into warm amber.
 meta:
   category: "Texture"
-  prompt: "A wide horizontal gradient from deep maroon to warm amber, grained, abstract banner, 2:1"
   promptKind: suggested
   asset: "texture-005.jpg"
   width: 1600
   height: 800
   source: "e-ember-wide.jpg"
+  prompt: |
+    Ultra-clean abstract gradient background artwork in an extra-wide banner format, composed as one
+    uninterrupted horizontal sweep of ember colour with absolutely no subject, no figure, no object,
+    no horizon, no flame and no visible geometry. The field begins at the far-left edge in a deep
+    smouldering maroon around #3A0E14 and travels rightward through a rich brick-red midpoint near
+    #8C2F1E before resolving at the far-right edge into a warm glowing amber around #E8A34B. The
+    transition is strictly linear along the horizontal axis, left to right, perfectly smooth, with
+    no banding, no visible colour stops, no hard edges
+    and no secondary light source anywhere in the frame. Colour interpolation is performed in
+    perceptual space so the reds stay deep and luminous through the middle and never dull toward
+    brown or blow out toward orange-white. Over the entire field lies a fine monochromatic film grain
+    at roughly 4% opacity, evenly distributed and organic — the texture of scanned colour negative,
+    not digital sensor noise — sitting slightly heavier in the dark maroon end exactly as real film
+    behaves. The surface finish is matte with zero specular sheen, zero gloss, zero vignette and no
+    discernible lighting direction. The frame is completely even from top edge to bottom edge with no
+    vertical variation at all, no corner darkening and no centre hotspot, so any horizontal crop
+    reads identically and the artwork carries no focal point. Colour grading is warm and saturated
+    but controlled, with highlights that never clip and shadows that never block up. Rendered as a
+    pure design asset intended as a wide background plate for UI hero bands, editorial banners and
+    cover work. Ultra high resolution, 8K, zero compression artefacts, perfectly smooth tonal ramp.
+  promptSpec: |
+    {
+      "output": {
+        "aspect_ratio": "2:1",
+        "orientation": "landscape banner",
+        "resolution": "ultra high detail",
+        "intended_use": "wide background band for hero sections and editorial banners"
+      },
+      "subject": {
+        "present": false,
+        "instruction": "Generate a pure abstract colour field. No people, no objects, no fire, no embers, no horizon, no text, no logo."
+      },
+      "composition": {
+        "type": "linear gradient",
+        "axis": "horizontal",
+        "direction": "left to right",
+        "vertical_variation": "none — identical from top edge to bottom edge",
+        "focal_point": "none",
+        "croppable": "any horizontal crop must read the same"
+      },
+      "color": {
+        "stop_start": "#3A0E14",
+        "stop_mid": "#8C2F1E",
+        "stop_end": "#E8A34B",
+        "interpolation": "perceptual (Oklab)",
+        "banding": "none",
+        "cast": "warm and saturated, never dulling to brown or clipping to white"
+      },
+      "texture": {
+        "grain_type": "organic film grain",
+        "grain_opacity": "4%",
+        "grain_distribution": "even, slightly heavier in the dark maroon end",
+        "digital_noise": "none"
+      },
+      "surface": {
+        "finish": "matte",
+        "specular": "none",
+        "vignette": "none",
+        "lighting_direction": "none",
+        "edge_evenness": "perfectly flat edge to edge"
+      },
+      "quality": {
+        "highlights": "clean, never clipped",
+        "shadows": "soft, never blocked up",
+        "compression_artifacts": "none",
+        "tonal_ramp": "perfectly continuous"
+      },
+      "negative_prompt": [
+        "subject",
+        "person",
+        "object",
+        "fire",
+        "flames",
+        "embers",
+        "sunset",
+        "horizon line",
+        "text",
+        "watermark",
+        "logo",
+        "banding",
+        "posterization",
+        "colour stops visible",
+        "vignette",
+        "digital noise",
+        "clipped highlights",
+        "low resolution",
+        "jpeg artifacts"
+      ]
+    }
 ---
 
 An original, procedurally generated background texture. The prompt above is **suggested** — a
