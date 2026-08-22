@@ -4,8 +4,8 @@ description: Scaffold and author installable registry items under registry/items
 order: 2
 ---
 
-Registry items live under `registry/items/{domain}/**`, where `{domain}` is one of the four
-sub-registries — `components`, `icons`, `fonts`, `media` — and can be installed by shadcn-compatible
+Registry items live under `registry/items/{domain}/**`, where `{domain}` is one of the eight
+sub-registries listed below — and can be installed by shadcn-compatible
 CLIs. Start new items with the scaffold command so the folder, `_registry.mdx`, source file,
 metadata, and generated registry JSON paths follow the template conventions.
 
@@ -25,15 +25,19 @@ bun --bun ./scripts/new.ts
 
 ## Registries (domains)
 
-Every item belongs to exactly one of the four sub-registries, chosen by its top-level folder under
+Every item belongs to exactly one of the eight sub-registries, chosen by its top-level folder under
 `registry/items/`:
 
-| Domain       | Registry                         | Namespace           |
-| ------------ | --------------------------------- | -------------------- |
-| `components` | Stark Components                  | `@stark-components`  |
-| `icons`      | Stark Icon + Logo + Illustration  | `@stark-icons`        |
-| `fonts`      | Stark Font                        | `@stark-fonts`        |
-| `media`      | Stark Images & Video              | `@stark-media`        |
+| Domain | Registry | Namespace |
+| --- | --- | --- |
+| `components` | Stark Components | `@stark-components` |
+| `templates` | Stark Templates | `@stark-templates` |
+| `icons` | Stark Icons | `@stark-icons` |
+| `logos` | Stark Logos | `@stark-logos` |
+| `illustrations` | Stark Illustrations | `@stark-illustrations` |
+| `fonts` | Stark Fonts | `@stark-fonts` |
+| `images` | Stark Images | `@stark-images` |
+| `videos` | Stark Videos | `@stark-videos` |
 
 ## Item Types
 
@@ -72,13 +76,13 @@ Use flags for agent-friendly and CI-friendly scaffolding:
 bun --bun ./scripts/new.ts --domain components --type registry:block --name stats-panel --description "A metrics panel with reusable sample data."
 bun --bun ./scripts/new.ts --domain components --type registry:ui --name prompt-input --description "An AI prompt input." --target @ui/ai/prompt-input.tsx
 bun --bun ./scripts/new.ts --domain components --type registry:page --name dashboard-page --description "A starter dashboard page." --target app/dashboard/page.tsx
-bun --bun ./scripts/new.ts --domain media --type registry:file --name chart-theme --description "Shared chart theme tokens." --target styles/chart-theme.css --file-extension css
+bun --bun ./scripts/new.ts --domain images --type registry:file --name chart-theme --description "Shared chart theme tokens." --target styles/chart-theme.css --file-extension css
 bun --bun ./scripts/new.ts --domain fonts --type registry:font --name font-inter --description "Inter font metadata." --font-family "'Inter Variable', sans-serif" --font-import Inter --font-variable=--font-sans
 ```
 
 Supported flags:
 
-- `--domain`: which sub-registry to publish under (`components`, `icons`, `fonts`, `media`). Defaults to `components`.
+- `--domain`: which sub-registry to publish under (`components`, `templates`, `icons`, `logos`, `illustrations`, `fonts`, `images`, `videos`). Defaults to `components`.
 - `--type`: registry item type. Defaults to `registry:ui`.
 - `--name`: required kebab-case item name.
 - `--title`: optional public title. Defaults from the name.

@@ -8,14 +8,18 @@ Every UI Assets item installs with a single shadcn CLI command. There's nothing 
 front; the CLI resolves the item, copies its source into your project, and adds any missing
 dependencies.
 
-UI Assets is organized into four separate registries, each with its own namespace:
+UI Assets is organized into eight separate registries, each with its own namespace:
 
-| Registry                          | Namespace          |
-| ---------------------------------- | ------------------ |
-| Stark Components                   | `@stark-components` |
-| Stark Icon + Logo + Illustration   | `@stark-icons`       |
-| Stark Font                         | `@stark-fonts`       |
-| Stark Images & Video               | `@stark-media`       |
+| Registry | Namespace |
+| --- | --- |
+| Stark Components | `@stark-components` |
+| Stark Templates | `@stark-templates` |
+| Stark Icons | `@stark-icons` |
+| Stark Logos | `@stark-logos` |
+| Stark Illustrations | `@stark-illustrations` |
+| Stark Fonts | `@stark-fonts` |
+| Stark Images | `@stark-images` |
+| Stark Videos | `@stark-videos` |
 
 ## Add the registries to your project
 
@@ -25,9 +29,13 @@ Add the registries you need to your project's `components.json`:
 {
   "registries": {
     "@stark-components": "https://ui-assets-edison.vercel.app/r/components/{name}.json",
+    "@stark-templates": "https://ui-assets-edison.vercel.app/r/templates/{name}.json",
     "@stark-icons": "https://ui-assets-edison.vercel.app/r/icons/{name}.json",
+    "@stark-logos": "https://ui-assets-edison.vercel.app/r/logos/{name}.json",
+    "@stark-illustrations": "https://ui-assets-edison.vercel.app/r/illustrations/{name}.json",
     "@stark-fonts": "https://ui-assets-edison.vercel.app/r/fonts/{name}.json",
-    "@stark-media": "https://ui-assets-edison.vercel.app/r/media/{name}.json"
+    "@stark-images": "https://ui-assets-edison.vercel.app/r/images/{name}.json",
+    "@stark-videos": "https://ui-assets-edison.vercel.app/r/videos/{name}.json"
   }
 }
 ```
@@ -53,8 +61,7 @@ yarn dlx shadcn@latest add @stark-components/acme-ui
 bunx --bun shadcn@latest add @stark-components/acme-ui
 ```
 
-Swap the namespace prefix for `@stark-icons`, `@stark-fonts`, or `@stark-media` to install from
-those registries instead.
+Swap the namespace prefix for any of the other registries above to install from them instead.
 
 You can also install any item directly by its full registry URL without adding it to
 `components.json` first:

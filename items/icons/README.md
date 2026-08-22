@@ -1,3 +1,3 @@
-# Stark Icon + Logo + Illustration
+# Icons
 
-Add items for this registry here, e.g. `items/icons/components/logo-mark/`.
+Add items for this registry here, e.g. `items/icons/components/arrow-right/`.

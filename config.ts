@@ -14,23 +14,47 @@ export const subRegistries = {
     description:
       "Reusable, production-ready UI components built with Stark's design system for consistent web and desktop experiences.",
   },
+  templates: {
+    name: "Stark Templates",
+    namespace: "@stark-templates",
+    description:
+      "Full-page and section templates composed from Stark components for fast, consistent product surfaces.",
+  },
   icons: {
-    name: "Stark Icon + Logo + Illustration",
+    name: "Stark Icons",
     namespace: "@stark-icons",
     description:
-      "Stark's official Icons, Logos, and Illustrations, built with a clean, minimal, bold, and consistent visual language for modern web and desktop apps.",
+      "Stark's official icon set, built with a clean, minimal, bold, and consistent visual language for modern web and desktop apps.",
+  },
+  logos: {
+    name: "Stark Logos",
+    namespace: "@stark-logos",
+    description:
+      "Stark's official logos, wordmarks, and brand symbols for consistent identity across products and surfaces.",
+  },
+  illustrations: {
+    name: "Stark Illustrations",
+    namespace: "@stark-illustrations",
+    description:
+      "Stark's illustrations and brand graphics, drawn with a clean, minimal, bold, and consistent visual language.",
   },
   fonts: {
-    name: "Stark Font",
+    name: "Stark Fonts",
     namespace: "@stark-fonts",
     description:
       "Stark's fonts and typography, providing consistent font styles, weights, and typographic utilities for modern web and desktop apps.",
   },
-  media: {
-    name: "Stark Images & Video",
-    namespace: "@stark-media",
+  images: {
+    name: "Stark Images",
+    namespace: "@stark-images",
     description:
-      "Stark's Images & Videos, providing curated, reusable visual assets optimized for consistent use across modern web and desktop apps.",
+      "Curated Stark photography, textures, and visual assets optimized for consistent use across modern web and desktop apps.",
+  },
+  videos: {
+    name: "Stark Videos",
+    namespace: "@stark-videos",
+    description:
+      "Stark motion and video assets, optimized for consistent use across modern web and desktop apps.",
   },
 } as const;
 

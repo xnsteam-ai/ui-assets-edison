@@ -1,14 +1,18 @@
 # UI Assets — Registry
 
-UI Assets is organized into four sub-registries, each installable with the shadcn CLI under its own
+UI Assets is organized into eight sub-registries, each installable with the shadcn CLI under its own
 namespace:
 
-| Registry                           | Namespace            | Domain folder |
-| ----------------------------------- | --------------------- | -------------- |
-| Stark Components                    | `@stark-components`   | `components`   |
-| Stark Icon + Logo + Illustration    | `@stark-icons`         | `icons`         |
-| Stark Font                          | `@stark-fonts`         | `fonts`         |
-| Stark Images & Video                | `@stark-media`         | `media`         |
+| Domain | Registry | Namespace |
+| --- | --- | --- |
+| `components` | Stark Components | `@stark-components` |
+| `templates` | Stark Templates | `@stark-templates` |
+| `icons` | Stark Icons | `@stark-icons` |
+| `logos` | Stark Logos | `@stark-logos` |
+| `illustrations` | Stark Illustrations | `@stark-illustrations` |
+| `fonts` | Stark Fonts | `@stark-fonts` |
+| `images` | Stark Images | `@stark-images` |
+| `videos` | Stark Videos | `@stark-videos` |
 
 ```sh
 npx shadcn@latest add https://ui-assets-edison.vercel.app/r/components/copy-button.json
@@ -16,11 +20,11 @@ npx shadcn@latest add https://ui-assets-edison.vercel.app/r/components/copy-butt
 
 ## Structure
 
-- `config.ts` — site identity (`registryConfig`) plus per-registry identity for the four domains
+- `config.ts` — site identity (`registryConfig`) plus per-registry identity for the eight domains
   (`subRegistries`: name, namespace, description).
 - `docs/` — public documentation pages.
 - `items/{domain}/{type}/{name}/` — installable source, one top-level folder per domain
-  (`components`, `icons`, `fonts`, `media`), each further split by item type
+  (`components`, `templates`, `icons`, `logos`, `illustrations`, `fonts`, `images`, `videos`), each further split by item type
   (`components`, `hooks`, `blocks`, `fonts`, `files`, ...).
 
 ## Consuming this repo
