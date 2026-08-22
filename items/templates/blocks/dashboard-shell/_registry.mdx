@@ -6,6 +6,89 @@ description: A sidebar, top bar, and metric grid — the frame most admin surfac
 files:
   - path: dashboard-shell.tsx
     type: registry:block
+controls:
+  - id: title
+    label: Page title
+    group: content
+    type: text
+    default: "Overview"
+  - id: navLabel
+    label: Nav label
+    group: content
+    type: text
+    default: "Workspace"
+  - id: metricOne
+    label: Metric 1
+    group: content
+    type: text
+    default: "Revenue"
+  - id: metricTwo
+    label: Metric 2
+    group: content
+    type: text
+    default: "Active users"
+  - id: metricThree
+    label: Metric 3
+    group: content
+    type: text
+    default: "Churn"
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "left"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 48
+    step: 2
+    unit: "px"
+    default: 20
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 32
+    step: 2
+    unit: "px"
+    default: 12
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 28
+    step: 1
+    unit: "px"
+    default: 12
+  - id: showSidebar
+    label: Show sidebar
+    group: logic
+    type: boolean
+    default: true
+  - id: showTopBar
+    label: Show top bar
+    group: logic
+    type: boolean
+    default: true
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

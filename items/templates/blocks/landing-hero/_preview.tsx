@@ -1,7 +1,7 @@
 "use client";
 
-import { LandingHero } from "./landing-hero";
+import { LandingHero, type LandingHeroProps } from "./landing-hero";
 
-export function Preview() {
-  return <LandingHero className="h-full" />;
+export function Preview(props: LandingHeroProps) {
+  return <LandingHero className="h-full" {...props} />;
 }

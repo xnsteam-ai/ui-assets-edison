@@ -6,6 +6,27 @@ description: A small hook that copies text and tracks the latest copy result.
 files:
   - path: use-copy-to-clipboard.ts
     type: registry:hook
+controls:
+  - id: buttonLabel
+    label: Button label
+    group: content
+    type: text
+    default: "Copy example command"
+  - id: copyValue
+    label: Value to copy
+    group: content
+    type: text
+    default: "npx shadcn@latest add https://example.com/r/example-card.json"
+  - id: idleMessage
+    label: Idle message
+    group: content
+    type: text
+    default: "Ready to copy."
+  - id: copiedMessage
+    label: Copied message
+    group: content
+    type: text
+    default: "Copied to clipboard."
 ---
 
 Call `copy` with the text you want to place on the clipboard. The hook exposes the latest copy

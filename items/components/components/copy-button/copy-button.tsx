@@ -10,6 +10,14 @@ type CopyButtonClickEvent = Parameters<
   NonNullable<React.ComponentProps<typeof Button>["onClick"]>
 >[0];
 
+/** Single source of defaults. The registry rewrites this literal when exporting a customised copy. */
+const defaults = {
+  showLabel: false,
+  copyLabel: "Copy to clipboard",
+  copiedLabel: "Copied",
+  resetDelay: 2000,
+};
+
 type CopyButtonProps = Omit<React.ComponentProps<typeof Button>, "children" | "value"> & {
   value: string | (() => string | Promise<string>);
   showLabel?: boolean;
@@ -22,10 +30,10 @@ type CopyButtonProps = Omit<React.ComponentProps<typeof Button>, "children" | "v
 
 function CopyButton({
   value,
-  showLabel = false,
-  copyLabel = "Copy to clipboard",
-  copiedLabel = "Copied",
-  resetDelay = 2000,
+  showLabel = defaults.showLabel,
+  copyLabel = defaults.copyLabel,
+  copiedLabel = defaults.copiedLabel,
+  resetDelay = defaults.resetDelay,
   variant = "ghost",
   size,
   className,

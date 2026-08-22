@@ -1,36 +1,90 @@
-import type * as React from "react";
-
 import { cn } from "@/lib/utils";
 
-/**
- * Placeholder layout for the Settings Page template.
- * The regions are blocked out; swap them for real content when the template is built.
- */
-function SettingsPage({ className, ...props }: React.ComponentProps<"div">) {
+/** Single source of defaults. The registry rewrites this literal when exporting a customised copy. */
+const defaults = {
+  heading: "Settings",
+  sectionOne: "General",
+  sectionTwo: "Notifications",
+  rowOne: "Workspace name",
+  rowTwo: "Email digests",
+  align: "left",
+  radius: 10,
+  padding: 20,
+  gap: 12,
+  accent: "#09090b",
+  ink: "inherit",
+  showNav: true,
+  surface: "transparent",
+};
+
+type SettingsPageProps = Partial<typeof defaults> & {
+  className?: string;
+};
+
+// Text alignment only: the wrapper is a flex column, so `items-*` here would collapse child widths.
+const alignClasses: Record<string, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  justify: "text-justify",
+};
+
+function SettingsPage({ className, ...props }: SettingsPageProps) {
+  const {
+    heading,
+    sectionOne,
+    sectionTwo,
+    rowOne,
+    rowTwo,
+    align,
+    radius,
+    padding,
+    gap,
+    accent,
+    ink,
+    showNav,
+    surface,
+  } = { ...defaults, ...props };
+
   return (
-    <div className={cn("aspect-[4/3] w-full text-foreground", className)} {...props}>
-      <div className="flex h-full w-full gap-3 p-5">
-        <div className="flex w-1/4 flex-col gap-1.5">
-          <div className="h-1.5 w-full rounded-full bg-foreground/30" />
-          <div className="h-1.5 w-4/5 rounded-full bg-foreground/12" />
-          <div className="h-1.5 w-4/5 rounded-full bg-foreground/12" />
-        </div>
-        <div className="flex flex-1 flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <div className="h-1.5 w-1/3 rounded-full bg-foreground/25" />
-            <div className="ml-auto h-4 w-10 rounded-full bg-foreground/20" />
+    <div
+      className={cn(
+        "flex aspect-[4/3] w-full flex-col",
+        align === "center" ? "items-center" : "",
+        alignClasses[align] ?? alignClasses.left,
+        className,
+      )}
+      style={{
+        borderRadius: `${radius}px`,
+        padding: `${padding}px`,
+        gap: `${gap}px`,
+        color: ink === "inherit" ? undefined : ink,
+        backgroundColor: surface === "transparent" ? undefined : surface,
+      }}
+    >
+      <div className="flex h-full w-full" style={{ gap: `${gap}px` }}>
+        {showNav ? (
+          <div className="flex w-1/4 flex-col gap-1.5">
+            <span className="text-xs font-medium">{heading}</span>
+            <span className="text-[11px] opacity-60">{sectionOne}</span>
+            <span className="text-[11px] opacity-60">{sectionTwo}</span>
           </div>
-          <div className="h-px w-full bg-foreground/10" />
-          <div className="flex items-center gap-2">
-            <div className="h-1.5 w-2/5 rounded-full bg-foreground/25" />
-            <div className="ml-auto h-4 w-10 rounded-full bg-foreground/20" />
-          </div>
-          <div className="h-px w-full bg-foreground/10" />
-          <div className="h-8 rounded-md bg-foreground/10" />
+        ) : null}
+        <div className="flex flex-1 flex-col" style={{ gap: `${gap}px` }}>
+          {[rowOne, rowTwo].map((row) => (
+            <div key={row} className="flex items-center justify-between gap-2">
+              <span className="text-[11px] opacity-70">{row}</span>
+              <span
+                className="h-4 w-9 rounded-full"
+                style={{ backgroundColor: accent, opacity: 0.75 }}
+              />
+            </div>
+          ))}
+          <div className="h-16 ring-1 ring-current/10" style={{ borderRadius: `${radius}px` }} />
         </div>
       </div>
     </div>
   );
 }
 
-export { SettingsPage };
+export { SettingsPage, type SettingsPageProps };

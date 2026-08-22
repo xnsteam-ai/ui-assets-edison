@@ -1,7 +1,7 @@
 "use client";
 
-import { AuthScreen } from "./auth-screen";
+import { AuthScreen, type AuthScreenProps } from "./auth-screen";
 
-export function Preview() {
-  return <AuthScreen className="h-full" />;
+export function Preview(props: AuthScreenProps) {
+  return <AuthScreen className="h-full" {...props} />;
 }

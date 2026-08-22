@@ -6,6 +6,84 @@ description: A centered sign-in card with fields, submit, and a provider divider
 files:
   - path: auth-screen.tsx
     type: registry:block
+controls:
+  - id: heading
+    label: Heading
+    group: content
+    type: text
+    default: "Sign in"
+  - id: subhead
+    label: Subheading
+    group: content
+    type: textarea
+    default: "Welcome back. Enter your details to continue."
+  - id: submitLabel
+    label: Submit label
+    group: content
+    type: text
+    default: "Continue"
+  - id: providerLabel
+    label: Provider label
+    group: content
+    type: text
+    default: "Continue with SSO"
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "left"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 48
+    step: 2
+    unit: "px"
+    default: 24
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 24
+    step: 2
+    unit: "px"
+    default: 10
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 28
+    step: 1
+    unit: "px"
+    default: 12
+  - id: showSubhead
+    label: Show subheading
+    group: logic
+    type: boolean
+    default: true
+  - id: showProvider
+    label: Show provider button
+    group: logic
+    type: boolean
+    default: true
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

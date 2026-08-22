@@ -13,6 +13,60 @@ files:
     type: registry:block
   - path: stats-data.ts
     type: registry:lib
+controls:
+  - id: panelTitle
+    label: Panel title
+    group: content
+    type: text
+    default: "Registry health"
+  - id: cardTitle
+    label: Card title
+    group: content
+    type: text
+    default: "Registry starter"
+  - id: cardDescription
+    label: Card description
+    group: content
+    type: textarea
+    default: "Compose local registry items with shadcn dependencies."
+  - id: cardStatus
+    label: Card badge
+    group: content
+    type: text
+    default: "Block"
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 40
+    step: 2
+    unit: "px"
+    default: 16
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 28
+    step: 1
+    unit: "px"
+    default: 10
+  - id: showCard
+    label: Show side card
+    group: logic
+    type: boolean
+    default: true
+  - id: showBadges
+    label: Show value badges
+    group: logic
+    type: boolean
+    default: true
 ---
 
 Use the panel as a dashboard summary block. It installs the component and the local data helper

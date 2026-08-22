@@ -1,39 +1,101 @@
-import type * as React from "react";
-
 import { cn } from "@/lib/utils";
 
-/**
- * Placeholder layout for the Pricing Table template.
- * The regions are blocked out; swap them for real content when the template is built.
- */
-function PricingTable({ className, ...props }: React.ComponentProps<"div">) {
+/** Single source of defaults. The registry rewrites this literal when exporting a customised copy. */
+const defaults = {
+  heading: "Simple pricing",
+  planOne: "Starter",
+  planTwo: "Team",
+  planThree: "Scale",
+  priceOne: "$0",
+  priceTwo: "$24",
+  priceThree: "$96",
+  ctaLabel: "Choose plan",
+  align: "center",
+  radius: 12,
+  padding: 24,
+  gap: 12,
+  accent: "#09090b",
+  ink: "inherit",
+  showHeading: true,
+  highlightMiddle: true,
+  surface: "transparent",
+};
+
+type PricingTableProps = Partial<typeof defaults> & {
+  className?: string;
+};
+
+// Text alignment only: the wrapper is a flex column, so `items-*` here would collapse child widths.
+const alignClasses: Record<string, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  justify: "text-justify",
+};
+
+function PricingTable({ className, ...props }: PricingTableProps) {
+  const {
+    heading,
+    planOne,
+    planTwo,
+    planThree,
+    priceOne,
+    priceTwo,
+    priceThree,
+    ctaLabel,
+    align,
+    radius,
+    padding,
+    gap,
+    accent,
+    ink,
+    showHeading,
+    highlightMiddle,
+    surface,
+  } = { ...defaults, ...props };
+
   return (
-    <div className={cn("aspect-[4/3] w-full text-foreground", className)} {...props}>
-      <div className="flex h-full w-full items-stretch gap-2 p-6">
-        <div className="flex flex-1 flex-col gap-1.5 rounded-lg bg-foreground/8 p-2">
-          <div className="h-1.5 w-2/3 rounded-full bg-foreground/25" />
-          <div className="h-3 w-1/2 rounded bg-foreground/30" />
-          <div className="h-1 w-full rounded-full bg-foreground/10" />
-          <div className="h-1 w-5/6 rounded-full bg-foreground/10" />
-          <div className="mt-auto h-4 rounded bg-foreground/20" />
-        </div>
-        <div className="flex flex-1 flex-col gap-1.5 rounded-lg bg-foreground/15 p-2">
-          <div className="h-1.5 w-2/3 rounded-full bg-foreground/30" />
-          <div className="h-3 w-1/2 rounded bg-foreground/40" />
-          <div className="h-1 w-full rounded-full bg-foreground/15" />
-          <div className="h-1 w-5/6 rounded-full bg-foreground/15" />
-          <div className="mt-auto h-4 rounded bg-foreground/35" />
-        </div>
-        <div className="flex flex-1 flex-col gap-1.5 rounded-lg bg-foreground/8 p-2">
-          <div className="h-1.5 w-2/3 rounded-full bg-foreground/25" />
-          <div className="h-3 w-1/2 rounded bg-foreground/30" />
-          <div className="h-1 w-full rounded-full bg-foreground/10" />
-          <div className="h-1 w-5/6 rounded-full bg-foreground/10" />
-          <div className="mt-auto h-4 rounded bg-foreground/20" />
-        </div>
+    <div
+      className={cn(
+        "flex aspect-[4/3] w-full flex-col",
+        align === "center" ? "items-center" : "",
+        alignClasses[align] ?? alignClasses.left,
+        className,
+      )}
+      style={{
+        borderRadius: `${radius}px`,
+        padding: `${padding}px`,
+        gap: `${gap}px`,
+        color: ink === "inherit" ? undefined : ink,
+        backgroundColor: surface === "transparent" ? undefined : surface,
+      }}
+    >
+      {showHeading ? <h2 className="text-lg font-semibold tracking-tight">{heading}</h2> : null}
+      <div className="flex w-full items-stretch" style={{ gap: `${gap}px` }}>
+        {[
+          { name: planOne, price: priceOne, featured: false },
+          { name: planTwo, price: priceTwo, featured: highlightMiddle },
+          { name: planThree, price: priceThree, featured: false },
+        ].map((plan) => (
+          <div
+            key={plan.name}
+            className="flex flex-1 flex-col gap-2 p-3 ring-1 ring-current/10"
+            style={{
+              borderRadius: `${radius}px`,
+              backgroundColor: plan.featured ? accent : "transparent",
+              color: plan.featured ? "var(--color-background)" : undefined,
+            }}
+          >
+            <span className="text-[11px] tracking-wide uppercase opacity-70">{plan.name}</span>
+            <span className="text-xl font-semibold">{plan.price}</span>
+            <span className="mt-auto rounded-md px-2 py-1.5 text-[11px] ring-1 ring-current/20">
+              {ctaLabel}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-export { PricingTable };
+export { PricingTable, type PricingTableProps };

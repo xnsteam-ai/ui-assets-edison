@@ -6,6 +6,104 @@ description: Three side-by-side plans with feature lists and a call to action pe
 files:
   - path: pricing-table.tsx
     type: registry:block
+controls:
+  - id: heading
+    label: Heading
+    group: content
+    type: text
+    default: "Simple pricing"
+  - id: planOne
+    label: Plan 1 name
+    group: content
+    type: text
+    default: "Starter"
+  - id: planTwo
+    label: Plan 2 name
+    group: content
+    type: text
+    default: "Team"
+  - id: planThree
+    label: Plan 3 name
+    group: content
+    type: text
+    default: "Scale"
+  - id: priceOne
+    label: Plan 1 price
+    group: content
+    type: text
+    default: "$0"
+  - id: priceTwo
+    label: Plan 2 price
+    group: content
+    type: text
+    default: "$24"
+  - id: priceThree
+    label: Plan 3 price
+    group: content
+    type: text
+    default: "$96"
+  - id: ctaLabel
+    label: Action label
+    group: content
+    type: text
+    default: "Choose plan"
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "center"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 64
+    step: 4
+    unit: "px"
+    default: 24
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 32
+    step: 2
+    unit: "px"
+    default: 12
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 32
+    step: 1
+    unit: "px"
+    default: 12
+  - id: showHeading
+    label: Show heading
+    group: logic
+    type: boolean
+    default: true
+  - id: highlightMiddle
+    label: Highlight middle plan
+    group: logic
+    type: boolean
+    default: true
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

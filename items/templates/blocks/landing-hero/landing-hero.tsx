@@ -1,25 +1,92 @@
-import type * as React from "react";
-
 import { cn } from "@/lib/utils";
 
-/**
- * Placeholder layout for the Landing Hero template.
- * The regions are blocked out; swap them for real content when the template is built.
- */
-function LandingHero({ className, ...props }: React.ComponentProps<"div">) {
+/** Single source of defaults. The registry rewrites this literal when exporting a customised copy. */
+const defaults = {
+  headline: "Build faster with Stark",
+  subhead: "A production-ready starting point for your next product surface.",
+  primaryLabel: "Get started",
+  secondaryLabel: "Read the docs",
+  primaryHref: "",
+  align: "center",
+  radius: 12,
+  padding: 32,
+  gap: 12,
+  surface: "transparent",
+  ink: "inherit",
+  accent: "#09090b",
+  showSecondary: true,
+  showEyebrow: true,
+  eyebrow: "Introducing",
+};
+
+type LandingHeroProps = Partial<typeof defaults> & {
+  className?: string;
+};
+
+// Text alignment only: the wrapper is a flex column, so `items-*` here would collapse child widths.
+const alignClasses: Record<string, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  justify: "text-justify",
+};
+
+function LandingHero({ className, ...props }: LandingHeroProps) {
+  const {
+    headline,
+    subhead,
+    primaryLabel,
+    secondaryLabel,
+    primaryHref,
+    align,
+    radius,
+    padding,
+    gap,
+    surface,
+    ink,
+    accent,
+    showSecondary,
+    showEyebrow,
+    eyebrow,
+  } = { ...defaults, ...props };
+
   return (
-    <div className={cn("aspect-[4/3] w-full text-foreground", className)} {...props}>
-      <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-6">
-        <div className="h-2.5 w-3/5 rounded-full bg-foreground/30" />
-        <div className="h-1.5 w-4/5 rounded-full bg-foreground/10" />
-        <div className="h-1.5 w-2/3 rounded-full bg-foreground/10" />
-        <div className="mt-2 flex gap-2">
-          <div className="h-5 w-16 rounded-md bg-foreground/35" />
-          <div className="h-5 w-16 rounded-md bg-foreground/12" />
-        </div>
+    <div
+      className={cn(
+        "flex aspect-[4/3] w-full flex-col",
+        align === "center" ? "items-center" : "",
+        alignClasses[align] ?? alignClasses.left,
+        className,
+      )}
+      style={{
+        borderRadius: `${radius}px`,
+        padding: `${padding}px`,
+        gap: `${gap}px`,
+        color: ink === "inherit" ? undefined : ink,
+        backgroundColor: surface === "transparent" ? undefined : surface,
+      }}
+    >
+      {showEyebrow ? (
+        <span className="text-[11px] tracking-[0.28em] uppercase opacity-70">{eyebrow}</span>
+      ) : null}
+      <h1 className="text-2xl font-semibold tracking-tight">{headline}</h1>
+      <p className="max-w-md text-sm opacity-70">{subhead}</p>
+      <div className="mt-1 flex flex-wrap items-center gap-2">
+        <a
+          href={primaryHref || undefined}
+          className="rounded-md px-4 py-2 text-xs font-medium"
+          style={{ backgroundColor: accent, color: "var(--color-background)" }}
+        >
+          {primaryLabel}
+        </a>
+        {showSecondary ? (
+          <span className="rounded-md px-4 py-2 text-xs font-medium ring-1 ring-current/20">
+            {secondaryLabel}
+          </span>
+        ) : null}
       </div>
     </div>
   );
 }
 
-export { LandingHero };
+export { LandingHero, type LandingHeroProps };

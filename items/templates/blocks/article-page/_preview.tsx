@@ -1,7 +1,7 @@
 "use client";
 
-import { ArticlePage } from "./article-page";
+import { ArticlePage, type ArticlePageProps } from "./article-page";
 
-export function Preview() {
-  return <ArticlePage className="h-full" />;
+export function Preview(props: ArticlePageProps) {
+  return <ArticlePage className="h-full" {...props} />;
 }

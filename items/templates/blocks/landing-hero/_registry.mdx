@@ -6,6 +6,94 @@ description: A centered hero with headline, supporting copy, and a primary/secon
 files:
   - path: landing-hero.tsx
     type: registry:block
+controls:
+  - id: eyebrow
+    label: Eyebrow
+    group: content
+    type: text
+    default: "Introducing"
+  - id: headline
+    label: Headline
+    group: content
+    type: text
+    default: "Build faster with Stark"
+  - id: subhead
+    label: Subheadline
+    group: content
+    type: textarea
+    default: "A production-ready starting point for your next product surface."
+  - id: primaryLabel
+    label: Primary label
+    group: content
+    type: text
+    default: "Get started"
+  - id: secondaryLabel
+    label: Secondary label
+    group: content
+    type: text
+    default: "Read the docs"
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "center"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 64
+    step: 4
+    unit: "px"
+    default: 32
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 0
+    max: 32
+    step: 2
+    unit: "px"
+    default: 12
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 32
+    step: 1
+    unit: "px"
+    default: 12
+  - id: showEyebrow
+    label: Show eyebrow
+    group: logic
+    type: boolean
+    default: true
+  - id: showSecondary
+    label: Show secondary action
+    group: logic
+    type: boolean
+    default: true
+  - id: primaryHref
+    label: Primary link
+    group: logic
+    type: url
+    default: ""
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

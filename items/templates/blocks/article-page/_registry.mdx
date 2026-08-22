@@ -6,6 +6,79 @@ description: A long-form reading layout with title, meta line, and body measure.
 files:
   - path: article-page.tsx
     type: registry:block
+controls:
+  - id: title
+    label: Title
+    group: content
+    type: text
+    default: "Designing a registry that scales"
+  - id: meta
+    label: Meta line
+    group: content
+    type: text
+    default: "8 min read"
+  - id: body
+    label: Body copy
+    group: content
+    type: textarea
+    default: "Long-form reading layout with a comfortable measure and a clear hierarchy."
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "left"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 64
+    step: 4
+    unit: "px"
+    default: 28
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 2
+    max: 24
+    step: 2
+    unit: "px"
+    default: 8
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 24
+    step: 1
+    unit: "px"
+    default: 10
+  - id: showMeta
+    label: Show meta line
+    group: logic
+    type: boolean
+    default: true
+  - id: showCover
+    label: Show cover
+    group: logic
+    type: boolean
+    default: true
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

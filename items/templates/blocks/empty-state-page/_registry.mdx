@@ -6,6 +6,84 @@ description: A centered empty state with artwork slot, message, and recovery act
 files:
   - path: empty-state-page.tsx
     type: registry:block
+controls:
+  - id: heading
+    label: Heading
+    group: content
+    type: text
+    default: "Nothing here yet"
+  - id: body
+    label: Body copy
+    group: content
+    type: textarea
+    default: "Create your first item to see it listed here."
+  - id: actionLabel
+    label: Action label
+    group: content
+    type: text
+    default: "Create item"
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "center"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 64
+    step: 4
+    unit: "px"
+    default: 32
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 24
+    step: 2
+    unit: "px"
+    default: 10
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 32
+    step: 1
+    unit: "px"
+    default: 12
+  - id: showArt
+    label: Show artwork
+    group: logic
+    type: boolean
+    default: true
+  - id: showAction
+    label: Show action
+    group: logic
+    type: boolean
+    default: true
+  - id: actionHref
+    label: Action link
+    group: logic
+    type: url
+    default: ""
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

@@ -6,6 +6,84 @@ description: A two-column settings layout with a section nav and stacked form ro
 files:
   - path: settings-page.tsx
     type: registry:block
+controls:
+  - id: heading
+    label: Heading
+    group: content
+    type: text
+    default: "Settings"
+  - id: sectionOne
+    label: Nav item 1
+    group: content
+    type: text
+    default: "General"
+  - id: sectionTwo
+    label: Nav item 2
+    group: content
+    type: text
+    default: "Notifications"
+  - id: rowOne
+    label: Row 1 label
+    group: content
+    type: text
+    default: "Workspace name"
+  - id: rowTwo
+    label: Row 2 label
+    group: content
+    type: text
+    default: "Email digests"
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "left"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 48
+    step: 2
+    unit: "px"
+    default: 20
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 28
+    step: 2
+    unit: "px"
+    default: 12
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 24
+    step: 1
+    unit: "px"
+    default: 10
+  - id: showNav
+    label: Show section nav
+    group: logic
+    type: boolean
+    default: true
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

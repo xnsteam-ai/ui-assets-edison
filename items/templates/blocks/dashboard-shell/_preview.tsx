@@ -1,7 +1,7 @@
 "use client";
 
-import { DashboardShell } from "./dashboard-shell";
+import { DashboardShell, type DashboardShellProps } from "./dashboard-shell";
 
-export function Preview() {
-  return <DashboardShell className="h-full" />;
+export function Preview(props: DashboardShellProps) {
+  return <DashboardShell className="h-full" {...props} />;
 }

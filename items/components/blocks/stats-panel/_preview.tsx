@@ -1,7 +1,7 @@
 "use client";
 
-import { StatsPanel } from "./stats-panel";
+import { StatsPanel, type StatsPanelProps } from "./stats-panel";
 
-export function Preview() {
-  return <StatsPanel />;
+export function Preview(props: StatsPanelProps) {
+  return <StatsPanel {...props} />;
 }

@@ -1,7 +1,7 @@
 "use client";
 
-import { EmptyStatePage } from "./empty-state-page";
+import { EmptyStatePage, type EmptyStatePageProps } from "./empty-state-page";
 
-export function Preview() {
-  return <EmptyStatePage className="h-full" />;
+export function Preview(props: EmptyStatePageProps) {
+  return <EmptyStatePage className="h-full" {...props} />;
 }

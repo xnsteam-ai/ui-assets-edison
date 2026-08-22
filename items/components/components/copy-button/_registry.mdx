@@ -5,6 +5,45 @@ title: Copy Button
 description: A button that copies a given string to the clipboard, showing a checkmark for 2 seconds after copying.
 registryDependencies:
   - button
+controls:
+  - id: copyLabel
+    label: Copy label
+    group: content
+    type: text
+    default: "Copy to clipboard"
+  - id: copiedLabel
+    label: Copied label
+    group: content
+    type: text
+    default: "Copied"
+  - id: resetDelay
+    label: Reset delay
+    group: effects
+    type: slider
+    min: 500
+    max: 5000
+    step: 250
+    unit: "ms"
+    default: 2000
+  - id: variant
+    label: Variant
+    group: color
+    type: select
+    default: "ghost"
+    options:
+      - value: "default"
+        label: "Default"
+      - value: "outline"
+        label: "Outline"
+      - value: "secondary"
+        label: "Secondary"
+      - value: "ghost"
+        label: "Ghost"
+  - id: showLabel
+    label: Show label
+    group: logic
+    type: boolean
+    default: false
 ---
 
 `CopyButton` copies a string (or the result of an async function) to the clipboard when clicked. It

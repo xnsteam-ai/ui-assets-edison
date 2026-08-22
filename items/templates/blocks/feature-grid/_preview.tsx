@@ -1,7 +1,7 @@
 "use client";
 
-import { FeatureGrid } from "./feature-grid";
+import { FeatureGrid, type FeatureGridProps } from "./feature-grid";
 
-export function Preview() {
-  return <FeatureGrid className="h-full" />;
+export function Preview(props: FeatureGridProps) {
+  return <FeatureGrid className="h-full" {...props} />;
 }

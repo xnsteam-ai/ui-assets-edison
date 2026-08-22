@@ -6,6 +6,78 @@ description: A six-up feature grid with icon, heading, and short copy per cell.
 files:
   - path: feature-grid.tsx
     type: registry:block
+controls:
+  - id: heading
+    label: Heading
+    group: content
+    type: text
+    default: "Everything you need"
+  - id: featureLabel
+    label: Feature label
+    group: content
+    type: text
+    default: "Feature"
+  - id: columns
+    label: Columns
+    group: layout
+    type: slider
+    min: 2
+    max: 4
+    step: 1
+    unit: ""
+    default: 3
+  - id: align
+    label: Text alignment
+    group: layout
+    type: align
+    default: "left"
+  - id: padding
+    label: Padding
+    group: layout
+    type: slider
+    min: 8
+    max: 48
+    step: 2
+    unit: "px"
+    default: 20
+  - id: gap
+    label: Gap
+    group: layout
+    type: slider
+    min: 4
+    max: 24
+    step: 2
+    unit: "px"
+    default: 10
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#09090b"
+  - id: ink
+    label: Text color
+    group: color
+    type: color
+    default: "inherit"
+  - id: radius
+    label: Corner radius
+    group: border
+    type: slider
+    min: 0
+    max: 24
+    step: 1
+    unit: "px"
+    default: 10
+  - id: showHeading
+    label: Show heading
+    group: logic
+    type: boolean
+    default: true
+  - id: surface
+    label: Surface
+    group: color
+    type: color
+    default: "transparent"
 ---
 
 **Placeholder layout.** This template ships a blocked-out structure rather than finished

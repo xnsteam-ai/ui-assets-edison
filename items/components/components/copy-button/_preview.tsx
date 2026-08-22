@@ -1,7 +1,7 @@
 "use client";
 
-import { CopyButton } from "./copy-button";
+import { CopyButton, type CopyButtonProps } from "./copy-button";
 
-export function Preview() {
-  return <CopyButton value="npx shadcn@latest add @assets/copy-button" />;
+export function Preview(props: Partial<CopyButtonProps>) {
+  return <CopyButton value="npx shadcn@latest add @assets/copy-button" {...props} />;
 }

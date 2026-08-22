@@ -1,7 +1,7 @@
 "use client";
 
-import { SettingsPage } from "./settings-page";
+import { SettingsPage, type SettingsPageProps } from "./settings-page";
 
-export function Preview() {
-  return <SettingsPage className="h-full" />;
+export function Preview(props: SettingsPageProps) {
+  return <SettingsPage className="h-full" {...props} />;
 }

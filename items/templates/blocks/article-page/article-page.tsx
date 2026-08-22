@@ -1,25 +1,76 @@
-import type * as React from "react";
-
 import { cn } from "@/lib/utils";
 
-/**
- * Placeholder layout for the Article Page template.
- * The regions are blocked out; swap them for real content when the template is built.
- */
-function ArticlePage({ className, ...props }: React.ComponentProps<"div">) {
+/** Single source of defaults. The registry rewrites this literal when exporting a customised copy. */
+const defaults = {
+  title: "Designing a registry that scales",
+  meta: "8 min read",
+  body: "Long-form reading layout with a comfortable measure and a clear hierarchy.",
+  align: "left",
+  radius: 10,
+  padding: 28,
+  gap: 8,
+  accent: "#09090b",
+  ink: "inherit",
+  showMeta: true,
+  showCover: true,
+  surface: "transparent",
+};
+
+type ArticlePageProps = Partial<typeof defaults> & {
+  className?: string;
+};
+
+// Text alignment only: the wrapper is a flex column, so `items-*` here would collapse child widths.
+const alignClasses: Record<string, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  justify: "text-justify",
+};
+
+function ArticlePage({ className, ...props }: ArticlePageProps) {
+  const {
+    title,
+    meta,
+    body,
+    align,
+    radius,
+    padding,
+    gap,
+    accent,
+    ink,
+    showMeta,
+    showCover,
+    surface,
+  } = { ...defaults, ...props };
+
   return (
-    <div className={cn("aspect-[4/3] w-full text-foreground", className)} {...props}>
-      <div className="flex h-full w-full flex-col gap-1.5 px-10 py-6">
-        <div className="h-2.5 w-4/5 rounded-full bg-foreground/30" />
-        <div className="h-1 w-1/3 rounded-full bg-foreground/15" />
-        <div className="mt-2 h-10 rounded-lg bg-foreground/10" />
-        <div className="h-1 w-full rounded-full bg-foreground/12" />
-        <div className="h-1 w-full rounded-full bg-foreground/12" />
-        <div className="h-1 w-11/12 rounded-full bg-foreground/12" />
-        <div className="h-1 w-4/5 rounded-full bg-foreground/12" />
-      </div>
+    <div
+      className={cn(
+        "flex aspect-[4/3] w-full flex-col",
+        align === "center" ? "items-center" : "",
+        alignClasses[align] ?? alignClasses.left,
+        className,
+      )}
+      style={{
+        borderRadius: `${radius}px`,
+        padding: `${padding}px`,
+        gap: `${gap}px`,
+        color: ink === "inherit" ? undefined : ink,
+        backgroundColor: surface === "transparent" ? undefined : surface,
+      }}
+    >
+      <h1 className="text-lg font-semibold tracking-tight">{title}</h1>
+      {showMeta ? <span className="text-[11px] opacity-60">{meta}</span> : null}
+      {showCover ? (
+        <div
+          className="h-16 w-full"
+          style={{ borderRadius: `${radius}px`, backgroundColor: accent, opacity: 0.15 }}
+        />
+      ) : null}
+      <p className="max-w-prose text-xs leading-relaxed opacity-75">{body}</p>
     </div>
   );
 }
 
-export { ArticlePage };
+export { ArticlePage, type ArticlePageProps };

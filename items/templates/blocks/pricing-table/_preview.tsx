@@ -1,7 +1,7 @@
 "use client";
 
-import { PricingTable } from "./pricing-table";
+import { PricingTable, type PricingTableProps } from "./pricing-table";
 
-export function Preview() {
-  return <PricingTable className="h-full" />;
+export function Preview(props: PricingTableProps) {
+  return <PricingTable className="h-full" {...props} />;
 }
