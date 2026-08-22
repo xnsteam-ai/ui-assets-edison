@@ -1,0 +1,12 @@
+/* Soft blush cloud backdrop for handwritten specimens. */
+.stark-backdrop-blush {
+  --stark-backdrop-ink: oklch(0.24 0.03 20);
+  position: relative;
+  isolation: isolate;
+  color: var(--stark-backdrop-ink);
+  background-color: oklch(0.94 0.03 25);
+  background-image:
+    radial-gradient(110% 80% at 20% 10%, oklch(0.95 0.04 220 / 0.85), transparent 60%),
+    radial-gradient(100% 90% at 90% 88%, oklch(0.91 0.06 30 / 0.9), transparent 58%),
+    linear-gradient(155deg, oklch(0.97 0.02 240) 0%, oklch(0.9 0.05 28) 100%);
+}

@@ -1,0 +1,29 @@
+---
+name: font-fredoka
+type: registry:font
+title: Fredoka
+description: A rounded retro display face, paired with a candy backdrop for playful, groovy headlines.
+font:
+  family: "'Fredoka', sans-serif"
+  provider: google
+  import: Fredoka
+  variable: "--font-groovy"
+  weight:
+    - "500"
+    - "700"
+  subsets:
+    - latin
+  dependency: "@fontsource/fredoka"
+files:
+  - path: font-fredoka-backdrop.css
+    type: registry:file
+    target: styles/font-fredoka-backdrop.css
+---
+
+Installs the Fredoka family plus the `.stark-backdrop-candy` backdrop it was set against.
+
+```tsx
+<div className="stark-backdrop-candy p-16">
+  <h1 style={{ fontFamily: "var(--font-groovy)" }}>Retro Bright</h1>
+</div>
+```

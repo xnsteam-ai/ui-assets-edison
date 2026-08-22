@@ -28,23 +28,23 @@ bun --bun ./scripts/new.ts
 Every item belongs to exactly one of the eight sub-registries, chosen by its top-level folder under
 `registry/items/`:
 
-| Domain | Registry | Namespace |
-| --- | --- | --- |
-| `components` | Stark Components | `@stark-components` |
-| `templates` | Stark Templates | `@stark-templates` |
-| `icons` | Stark Icons | `@stark-icons` |
-| `logos` | Stark Logos | `@stark-logos` |
+| Domain          | Registry            | Namespace              |
+| --------------- | ------------------- | ---------------------- |
+| `components`    | Stark Components    | `@stark-components`    |
+| `templates`     | Stark Templates     | `@stark-templates`     |
+| `icons`         | Stark Icons         | `@stark-icons`         |
+| `logos`         | Stark Logos         | `@stark-logos`         |
 | `illustrations` | Stark Illustrations | `@stark-illustrations` |
-| `fonts` | Stark Fonts | `@stark-fonts` |
-| `images` | Stark Images | `@stark-images` |
-| `videos` | Stark Videos | `@stark-videos` |
+| `fonts`         | Stark Fonts         | `@stark-fonts`         |
+| `images`        | Stark Images        | `@stark-images`        |
+| `videos`        | Stark Videos        | `@stark-videos`        |
 
 ## Item Types
 
 Choose the registry type from what the item installs; this becomes the type-folder inside the
 domain, `registry/items/{domain}/{type-folder}/**`:
 
-| Type                 | Use For                                   | Type folder |
+| Type                 | Use For                                   | Type folder  |
 | -------------------- | ----------------------------------------- | ------------ |
 | `registry:ui`        | Shadcn-style UI components                | `components` |
 | `registry:component` | Components outside `components/ui`        | `components` |

@@ -1,0 +1,29 @@
+---
+name: font-caveat
+type: registry:font
+title: Caveat
+description: A relaxed handwritten script, paired with a soft blush backdrop for warm, personal brand moments.
+font:
+  family: "'Caveat', cursive"
+  provider: google
+  import: Caveat
+  variable: "--font-script"
+  weight:
+    - "400"
+    - "700"
+  subsets:
+    - latin
+  dependency: "@fontsource/caveat"
+files:
+  - path: font-caveat-backdrop.css
+    type: registry:file
+    target: styles/font-caveat-backdrop.css
+---
+
+Installs the Caveat family plus the `.stark-backdrop-blush` backdrop it was set against.
+
+```tsx
+<div className="stark-backdrop-blush p-16">
+  <h1 style={{ fontFamily: "var(--font-script)" }}>Retail Therapy</h1>
+</div>
+```

@@ -1,0 +1,30 @@
+---
+name: font-playfair-display
+type: registry:font
+title: Playfair Display
+description: A high-contrast editorial serif, paired with a warm terracotta backdrop for luxury and beauty layouts.
+font:
+  family: "'Playfair Display', serif"
+  provider: google
+  import: Playfair_Display
+  variable: "--font-display"
+  weight:
+    - "400"
+    - "700"
+  subsets:
+    - latin
+  dependency: "@fontsource/playfair-display"
+files:
+  - path: font-playfair-display-backdrop.css
+    type: registry:file
+    target: styles/font-playfair-display-backdrop.css
+---
+
+Installs the Playfair Display family plus the `.stark-backdrop-lavish` backdrop it was set against,
+so the type and its setting travel together.
+
+```tsx
+<div className="stark-backdrop-lavish p-16">
+  <h1 style={{ fontFamily: "var(--font-display)" }}>Lavish</h1>
+</div>
+```

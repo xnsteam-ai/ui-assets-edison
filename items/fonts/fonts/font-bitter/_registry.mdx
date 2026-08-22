@@ -1,0 +1,29 @@
+---
+name: font-bitter
+type: registry:font
+title: Bitter
+description: A contemporary slab serif, paired with a cool quartz backdrop for clean product and editorial intros.
+font:
+  family: "'Bitter', serif"
+  provider: google
+  import: Bitter
+  variable: "--font-slab"
+  weight:
+    - "500"
+    - "700"
+  subsets:
+    - latin
+  dependency: "@fontsource/bitter"
+files:
+  - path: font-bitter-backdrop.css
+    type: registry:file
+    target: styles/font-bitter-backdrop.css
+---
+
+Installs the Bitter family plus the `.stark-backdrop-crystal` backdrop it was set against.
+
+```tsx
+<div className="stark-backdrop-crystal p-16">
+  <h1 style={{ fontFamily: "var(--font-slab)" }}>Nudes</h1>
+</div>
+```

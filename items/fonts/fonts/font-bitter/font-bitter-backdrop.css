@@ -1,0 +1,12 @@
+/* Cool, quartz-white backdrop for slab specimens. */
+.stark-backdrop-crystal {
+  --stark-backdrop-ink: oklch(0.18 0.01 250);
+  position: relative;
+  isolation: isolate;
+  color: var(--stark-backdrop-ink);
+  background-color: oklch(0.96 0.005 240);
+  background-image:
+    radial-gradient(100% 80% at 82% 8%, oklch(0.88 0.03 232 / 0.9), transparent 60%),
+    radial-gradient(90% 90% at 6% 92%, oklch(0.83 0.02 258 / 0.8), transparent 62%),
+    linear-gradient(160deg, oklch(0.99 0.002 250) 0%, oklch(0.9 0.015 245) 100%);
+}
