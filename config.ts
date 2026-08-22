@@ -56,6 +56,12 @@ export const subRegistries = {
     description:
       "Stark motion and video assets, optimized for consistent use across modern web and desktop apps.",
   },
+  backgrounds: {
+    name: "Stark Backgrounds",
+    namespace: "@stark-backgrounds",
+    description:
+      "Stark's pure-CSS surface layer: shaders, background patterns, and gradients, every value exposed as an editable custom property.",
+  },
 } as const;
 
 export type SubRegistryKey = keyof typeof subRegistries;

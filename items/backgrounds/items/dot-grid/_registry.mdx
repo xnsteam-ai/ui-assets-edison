@@ -1,0 +1,204 @@
+---
+name: dot-grid
+type: registry:item
+title: Dot Grid
+description: A dot matrix background with shape, spacing, fade mask, and an optional second offset layer.
+meta:
+  category: "Background"
+files:
+  - path: dot-grid.css
+    type: registry:file
+    target: styles/stark/dot-grid.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    default: ""
+    description: Sets data-preset on the element. Individual controls below still win.
+    options:
+      - value: ""
+        label: Default
+      - value: blueprint
+        label: Blueprint
+      - value: paper
+        label: Paper
+      - value: nebula
+        label: Nebula
+  - id: shape
+    label: Dot shape
+    group: layout
+    type: select
+    default: ""
+    options:
+      - value: ""
+        label: Circle
+      - value: square
+        label: Square
+      - value: cross
+        label: Cross
+  - id: dotSize
+    label: Dot size
+    group: layout
+    type: slider
+    min: 1
+    max: 12
+    step: 0.5
+    unit: px
+    cssProp: --dot-size
+    default: 2
+  - id: dotGap
+    label: Grid gap
+    group: layout
+    type: slider
+    min: 6
+    max: 96
+    step: 1
+    unit: px
+    cssProp: --dot-gap
+    default: 24
+  - id: dotAngle
+    label: Grid rotation
+    group: layout
+    type: slider
+    min: 0
+    max: 90
+    step: 1
+    unit: deg
+    cssProp: --dot-angle
+    default: 0
+  - id: surfaceColor
+    label: Surface
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#09090b"
+  - id: dotColor
+    label: Dot colour
+    group: color
+    type: color
+    cssProp: --dot-color
+    default: "#3f3f46"
+  - id: dotOpacity
+    label: Dot opacity
+    group: color
+    type: slider
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    cssProp: --dot-opacity
+    default: 1
+  - id: blur
+    label: Blur
+    group: effects
+    type: slider
+    min: 0
+    max: 12
+    step: 0.5
+    unit: px
+    cssProp: --blur
+    default: 0
+  - id: fadeStart
+    label: Fade start
+    group: effects
+    type: slider
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    cssProp: --fade-start
+    default: 30
+  - id: fadeEnd
+    label: Fade end
+    group: effects
+    type: slider
+    min: 0
+    max: 140
+    step: 1
+    unit: "%"
+    cssProp: --fade-end
+    default: 78
+  - id: echoColor
+    label: Echo colour
+    group: effects
+    type: color
+    cssProp: --echo-color
+    default: "#6366f1"
+  - id: echoOpacity
+    label: Echo opacity
+    group: effects
+    type: slider
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    cssProp: --echo-opacity
+    default: 0
+  - id: echoScale
+    label: Echo scale
+    group: effects
+    type: slider
+    min: 1
+    max: 8
+    step: 0.5
+    unit: ""
+    cssProp: --echo-scale
+    default: 3
+  - id: echoOffset
+    label: Echo offset
+    group: effects
+    type: slider
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    cssProp: --echo-offset
+    default: 50
+  - id: drift
+    label: Animate drift
+    group: logic
+    type: boolean
+    default: false
+  - id: driftDuration
+    label: Drift duration
+    group: logic
+    type: slider
+    min: 4
+    max: 90
+    step: 1
+    unit: s
+    cssProp: --drift-duration
+    default: 24
+  - id: driftDistance
+    label: Drift distance
+    group: logic
+    type: slider
+    min: 4
+    max: 96
+    step: 1
+    unit: px
+    cssProp: --drift-distance
+    default: 24
+---
+
+A dot matrix drawn from a single repeating radial gradient, masked so it dissolves into the surface
+rather than stopping at a hard edge. The second `echo` layer is off by default; raising its opacity
+gives the grid depth.
+
+```html
+<div class="stark-bg-dot-grid" data-preset="blueprint">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so you can override any of them per instance without touching the
+stylesheet:
+
+```html
+<div class="stark-bg-dot-grid" style="--dot-gap: 40px; --dot-color: #f472b6">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.

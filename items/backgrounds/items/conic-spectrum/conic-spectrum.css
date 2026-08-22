@@ -1,0 +1,134 @@
+/**
+ * Stark Backgrounds — Conic Spectrum
+ *
+ * A conic sweep with controllable origin, stop colours and arc, plus an iridescent mode that
+ * folds a second offset sweep over the first. Every value lives in the `stark:defaults` block.
+ */
+
+/* stark:defaults */
+.stark-bg-conic-spectrum {
+  --surface-color: #08080c;
+  --stop-1: #6366f1;
+  --stop-2: #ec4899;
+  --stop-3: #f59e0b;
+  --stop-4: #06b6d4;
+  --origin-x: 50%;
+  --origin-y: 50%;
+  --start-angle: 0deg;
+  --arc: 360deg;
+  --sweep-opacity: 0.9;
+  --iridescence: 0;
+  --iridescent-offset: 40deg;
+  --core-size: 0%;
+  --falloff: 72%;
+  --blur: 0px;
+  --saturation: 1;
+  --spin-duration: 30s;
+  --spin-play: paused;
+}
+/* stark:end */
+
+.stark-bg-conic-spectrum {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--surface-color);
+}
+
+.stark-bg-conic-spectrum::before,
+.stark-bg-conic-spectrum::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--blur) * 2);
+  filter: blur(var(--blur)) saturate(var(--saturation));
+  animation-name: stark-conic-spin;
+  animation-duration: var(--spin-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: var(--spin-play);
+  will-change: transform;
+  z-index: 0;
+}
+
+.stark-bg-conic-spectrum::before {
+  background-image: conic-gradient(
+    from var(--start-angle) at var(--origin-x) var(--origin-y),
+    var(--stop-1) 0deg,
+    var(--stop-2) calc(var(--arc) * 0.33),
+    var(--stop-3) calc(var(--arc) * 0.66),
+    var(--stop-4) var(--arc),
+    var(--stop-1) 360deg
+  );
+  opacity: var(--sweep-opacity);
+  /* Radial mask doubles as the falloff: the sweep fades out before the frame edge, and
+     --core-size punches a soft hole at the origin so the conic singularity never shows. */
+  mask-image: radial-gradient(
+    circle at var(--origin-x) var(--origin-y),
+    transparent 0,
+    #000 var(--core-size),
+    #000 calc(var(--falloff) * 0.5),
+    transparent var(--falloff)
+  );
+}
+
+/* Iridescent fold — a second sweep, offset and blended, off by default. */
+.stark-bg-conic-spectrum::after {
+  background-image: conic-gradient(
+    from calc(var(--start-angle) + var(--iridescent-offset)) at var(--origin-x) var(--origin-y),
+    var(--stop-3),
+    var(--stop-1),
+    var(--stop-4),
+    var(--stop-2),
+    var(--stop-3)
+  );
+  opacity: var(--iridescence);
+  mix-blend-mode: color-dodge;
+  animation-direction: reverse;
+  mask-image: radial-gradient(
+    circle at var(--origin-x) var(--origin-y),
+    transparent 0,
+    #000 var(--core-size),
+    transparent var(--falloff)
+  );
+}
+
+.stark-bg-conic-spectrum > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stark-bg-conic-spectrum[data-preset="chrome"] {
+  --stop-1: #e4e4e7;
+  --stop-2: #52525b;
+  --stop-3: #fafafa;
+  --stop-4: #27272a;
+  --iridescence: 0.25;
+  --saturation: 0.4;
+}
+
+.stark-bg-conic-spectrum[data-preset="halo"] {
+  --core-size: 28%;
+  --falloff: 55%;
+  --blur: 30px;
+  --origin-y: 90%;
+}
+
+.stark-bg-conic-spectrum[data-preset="oil"] {
+  --iridescence: 0.6;
+  --blur: 22px;
+  --saturation: 1.5;
+  --spin-play: running;
+}
+
+@keyframes stark-conic-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stark-bg-conic-spectrum::before,
+  .stark-bg-conic-spectrum::after {
+    animation: none;
+  }
+}

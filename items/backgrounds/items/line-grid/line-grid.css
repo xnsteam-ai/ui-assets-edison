@@ -1,0 +1,123 @@
+/**
+ * Stark Backgrounds — Line Grid
+ *
+ * A ruled grid with independent horizontal and vertical control, a heavier major line every N
+ * cells, and cells that light up on hover. Every value lives in the `stark:defaults` block.
+ */
+
+/* stark:defaults */
+.stark-bg-line-grid {
+  --line-color: #27272a;
+  --line-width: 1px;
+  --cell-width: 48px;
+  --cell-height: 48px;
+  --major-color: #3f3f46;
+  --major-width: 1px;
+  --major-every: 4;
+  --major-opacity: 1;
+  --surface-color: #09090b;
+  --line-opacity: 1;
+  --skew: 0deg;
+  --fade-start: 40%;
+  --fade-end: 90%;
+  --hover-color: #6366f1;
+  --hover-opacity: 0;
+  --blur: 0px;
+}
+/* stark:end */
+
+.stark-bg-line-grid {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--surface-color);
+}
+
+.stark-bg-line-grid::before {
+  content: "";
+  position: absolute;
+  inset: calc(-2px - var(--blur) * 2);
+  /* Four gradients: minor verticals, minor horizontals, then the major pair on a multiplied cell. */
+  background-image: linear-gradient(
+      to right,
+      var(--line-color) var(--line-width),
+      transparent var(--line-width)
+    ),
+    linear-gradient(to bottom, var(--line-color) var(--line-width), transparent var(--line-width)),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--major-color) calc(var(--major-opacity) * 100%), transparent)
+        var(--major-width),
+      transparent var(--major-width)
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--major-color) calc(var(--major-opacity) * 100%), transparent)
+        var(--major-width),
+      transparent var(--major-width)
+    );
+  background-size:
+    var(--cell-width) var(--cell-height),
+    var(--cell-width) var(--cell-height),
+    calc(var(--cell-width) * var(--major-every)) calc(var(--cell-height) * var(--major-every)),
+    calc(var(--cell-width) * var(--major-every)) calc(var(--cell-height) * var(--major-every));
+  background-position: center;
+  opacity: var(--line-opacity);
+  transform: skewX(var(--skew));
+  filter: blur(var(--blur));
+  mask-image: radial-gradient(ellipse at center, #000 var(--fade-start), transparent var(--fade-end));
+  z-index: 0;
+}
+
+/*
+ * Cursor-lit cells without JavaScript: a radial highlight anchored to the element's own hover
+ * state. It cannot follow the exact pointer position — that needs JS — so it lights the grid as a
+ * whole from the centre, which reads as a deliberate focus rather than a broken cursor effect.
+ */
+.stark-bg-line-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    ellipse at center,
+    color-mix(in oklab, var(--hover-color) 55%, transparent) 0%,
+    transparent 65%
+  );
+  opacity: var(--hover-opacity);
+  transition: opacity 420ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stark-bg-line-grid:hover::after {
+  opacity: calc(var(--hover-opacity) + 0.35);
+}
+
+.stark-bg-line-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stark-bg-line-grid[data-preset="blueprint"] {
+  --surface-color: #041627;
+  --line-color: #0e4a72;
+  --major-color: #38bdf8;
+  --hover-color: #38bdf8;
+  --hover-opacity: 0.12;
+}
+
+.stark-bg-line-grid[data-preset="graph"] {
+  --surface-color: #fbfbf9;
+  --line-color: #dcdcd4;
+  --major-color: #b4b4a8;
+  --cell-width: 20px;
+  --cell-height: 20px;
+  --major-every: 5;
+}
+
+.stark-bg-line-grid[data-preset="perspective"] {
+  --skew: -18deg;
+  --cell-height: 72px;
+  --fade-start: 10%;
+  --fade-end: 70%;
+}

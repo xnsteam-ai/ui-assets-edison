@@ -1,0 +1,175 @@
+---
+name: paper-grain
+type: registry:item
+title: Paper Grain
+description: "A layered paper texture with SVG fractal-noise fibre, fine speckle, tint wash, and vignette."
+meta:
+  category: "Background"
+files:
+  - path: paper-grain.css
+    type: registry:file
+    target: styles/stark/paper-grain.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    description: "Sets data-preset on the element. Individual controls below still win."
+    options:
+      - value: ""
+        label: Default
+      - value: "newsprint"
+        label: Newsprint
+      - value: "charcoal"
+        label: Charcoal
+      - value: "canvas"
+        label: Canvas
+    default: ""
+  - id: grainScale
+    label: Fibre scale
+    group: layout
+    type: slider
+    cssProp: --grain-scale
+    min: 0.2
+    max: 3
+    step: 0.02
+    unit: ""
+    default: 0.82
+  - id: fibreAngle
+    label: Fibre angle
+    group: layout
+    type: slider
+    cssProp: --fibre-angle
+    min: 0
+    max: 180
+    step: 1
+    unit: "deg"
+    default: 0
+  - id: speckleGap
+    label: Speckle gap
+    group: layout
+    type: slider
+    cssProp: --speckle-gap
+    min: 2
+    max: 16
+    step: 0.5
+    unit: "px"
+    default: 3
+  - id: tintAngle
+    label: Tint angle
+    group: layout
+    type: slider
+    cssProp: --tint-angle
+    min: 0
+    max: 360
+    step: 1
+    unit: "deg"
+    default: 145
+  - id: surfaceColor
+    label: Paper
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#f5f3ee"
+  - id: grainColor
+    label: Grain
+    group: color
+    type: color
+    cssProp: --grain-color
+    default: "#1c1917"
+  - id: tintColor
+    label: Tint
+    group: color
+    type: color
+    cssProp: --tint-color
+    default: "#d6c9b0"
+  - id: grainOpacity
+    label: Fibre opacity
+    group: color
+    type: slider
+    cssProp: --grain-opacity
+    min: 0
+    max: 1
+    step: 0.01
+    unit: ""
+    default: 0.16
+  - id: speckleOpacity
+    label: Speckle opacity
+    group: color
+    type: slider
+    cssProp: --speckle-opacity
+    min: 0
+    max: 1
+    step: 0.01
+    unit: ""
+    default: 0.05
+  - id: tintOpacity
+    label: Tint opacity
+    group: color
+    type: slider
+    cssProp: --tint-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.35
+  - id: contrast
+    label: Contrast
+    group: effects
+    type: slider
+    cssProp: --contrast
+    min: 0.4
+    max: 3
+    step: 0.05
+    unit: ""
+    default: 1
+  - id: blur
+    label: Blur
+    group: effects
+    type: slider
+    cssProp: --blur
+    min: 0
+    max: 6
+    step: 0.25
+    unit: "px"
+    default: 0
+  - id: vignetteOpacity
+    label: Vignette
+    group: effects
+    type: slider
+    cssProp: --vignette-opacity
+    min: 0
+    max: 1
+    step: 0.02
+    unit: ""
+    default: 0.18
+  - id: vignetteStart
+    label: Vignette start
+    group: effects
+    type: slider
+    cssProp: --vignette-start
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    default: 55
+---
+
+Real non-repeating noise from an inline `feTurbulence` filter in a data URI, so there is no raster asset and the texture scales to any size. The speckle lattice and tint wash layer over it.
+
+```html
+<div class="stark-bg-paper-grain">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so any of them can be overridden per instance without editing the
+stylesheet:
+
+```html
+<div class="stark-bg-paper-grain" style="--grain-scale: 0.82; --fibre-angle: 0deg">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.

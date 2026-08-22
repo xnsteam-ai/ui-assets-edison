@@ -1,0 +1,191 @@
+---
+name: line-grid
+type: registry:item
+title: Line Grid
+description: "A ruled grid with independent axes, a heavier major line every N cells, and a hover-lit wash."
+meta:
+  category: "Background"
+files:
+  - path: line-grid.css
+    type: registry:file
+    target: styles/stark/line-grid.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    description: "Sets data-preset on the element. Individual controls below still win."
+    options:
+      - value: ""
+        label: Default
+      - value: "blueprint"
+        label: Blueprint
+      - value: "graph"
+        label: Graph
+      - value: "perspective"
+        label: Perspective
+    default: ""
+  - id: cellWidth
+    label: Cell width
+    group: layout
+    type: slider
+    cssProp: --cell-width
+    min: 8
+    max: 160
+    step: 1
+    unit: "px"
+    default: 48
+  - id: cellHeight
+    label: Cell height
+    group: layout
+    type: slider
+    cssProp: --cell-height
+    min: 8
+    max: 160
+    step: 1
+    unit: "px"
+    default: 48
+  - id: lineWidth
+    label: Line weight
+    group: layout
+    type: slider
+    cssProp: --line-width
+    min: 0.5
+    max: 6
+    step: 0.5
+    unit: "px"
+    default: 1
+  - id: majorEvery
+    label: Major every
+    group: layout
+    type: slider
+    cssProp: --major-every
+    min: 2
+    max: 12
+    step: 1
+    unit: ""
+    default: 4
+  - id: majorWidth
+    label: Major weight
+    group: layout
+    type: slider
+    cssProp: --major-width
+    min: 0.5
+    max: 8
+    step: 0.5
+    unit: "px"
+    default: 1
+  - id: skew
+    label: Skew
+    group: layout
+    type: slider
+    cssProp: --skew
+    min: -40
+    max: 40
+    step: 1
+    unit: "deg"
+    default: 0
+  - id: surfaceColor
+    label: Surface
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#09090b"
+  - id: lineColor
+    label: Line colour
+    group: color
+    type: color
+    cssProp: --line-color
+    default: "#27272a"
+  - id: majorColor
+    label: Major colour
+    group: color
+    type: color
+    cssProp: --major-color
+    default: "#3f3f46"
+  - id: lineOpacity
+    label: Line opacity
+    group: color
+    type: slider
+    cssProp: --line-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 1
+  - id: majorOpacity
+    label: Major opacity
+    group: color
+    type: slider
+    cssProp: --major-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 1
+  - id: blur
+    label: Blur
+    group: effects
+    type: slider
+    cssProp: --blur
+    min: 0
+    max: 12
+    step: 0.5
+    unit: "px"
+    default: 0
+  - id: fadeStart
+    label: Fade start
+    group: effects
+    type: slider
+    cssProp: --fade-start
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    default: 40
+  - id: fadeEnd
+    label: Fade end
+    group: effects
+    type: slider
+    cssProp: --fade-end
+    min: 0
+    max: 160
+    step: 1
+    unit: "%"
+    default: 90
+  - id: hoverColor
+    label: Hover glow
+    group: effects
+    type: color
+    cssProp: --hover-color
+    default: "#6366f1"
+  - id: hoverOpacity
+    label: Hover opacity
+    group: effects
+    type: slider
+    cssProp: --hover-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0
+---
+
+A ruled grid built from four stacked linear gradients: minor lines on one lattice, major lines on a multiple of it. The hover wash is CSS-only — it lights the grid from the centre on hover rather than following the pointer, which would need JavaScript.
+
+```html
+<div class="stark-bg-line-grid">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so any of them can be overridden per instance without editing the
+stylesheet:
+
+```html
+<div class="stark-bg-line-grid" style="--cell-width: 48px; --cell-height: 48px">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.

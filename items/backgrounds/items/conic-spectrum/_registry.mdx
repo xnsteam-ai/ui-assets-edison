@@ -1,0 +1,202 @@
+---
+name: conic-spectrum
+type: registry:item
+title: Conic Spectrum
+description: "A conic sweep with movable origin, four stops, adjustable arc, and an iridescent fold."
+meta:
+  category: "Gradient"
+files:
+  - path: conic-spectrum.css
+    type: registry:file
+    target: styles/stark/conic-spectrum.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    description: "Sets data-preset on the element. Individual controls below still win."
+    options:
+      - value: ""
+        label: Default
+      - value: "chrome"
+        label: Chrome
+      - value: "halo"
+        label: Halo
+      - value: "oil"
+        label: Oil
+    default: ""
+  - id: originX
+    label: Origin X
+    group: layout
+    type: slider
+    cssProp: --origin-x
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    default: 50
+  - id: originY
+    label: Origin Y
+    group: layout
+    type: slider
+    cssProp: --origin-y
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    default: 50
+  - id: startAngle
+    label: Start angle
+    group: layout
+    type: slider
+    cssProp: --start-angle
+    min: 0
+    max: 360
+    step: 1
+    unit: "deg"
+    default: 0
+  - id: arc
+    label: Arc
+    group: layout
+    type: slider
+    cssProp: --arc
+    min: 30
+    max: 360
+    step: 1
+    unit: "deg"
+    default: 360
+  - id: surfaceColor
+    label: Base
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#08080c"
+  - id: stop1
+    label: Stop 1
+    group: color
+    type: color
+    cssProp: --stop-1
+    default: "#6366f1"
+  - id: stop2
+    label: Stop 2
+    group: color
+    type: color
+    cssProp: --stop-2
+    default: "#ec4899"
+  - id: stop3
+    label: Stop 3
+    group: color
+    type: color
+    cssProp: --stop-3
+    default: "#f59e0b"
+  - id: stop4
+    label: Stop 4
+    group: color
+    type: color
+    cssProp: --stop-4
+    default: "#06b6d4"
+  - id: sweepOpacity
+    label: Sweep opacity
+    group: color
+    type: slider
+    cssProp: --sweep-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.9
+  - id: saturation
+    label: Saturation
+    group: color
+    type: slider
+    cssProp: --saturation
+    min: 0
+    max: 3
+    step: 0.05
+    unit: ""
+    default: 1
+  - id: coreSize
+    label: Core hole
+    group: effects
+    type: slider
+    cssProp: --core-size
+    min: 0
+    max: 60
+    step: 1
+    unit: "%"
+    default: 0
+  - id: falloff
+    label: Falloff
+    group: effects
+    type: slider
+    cssProp: --falloff
+    min: 20
+    max: 140
+    step: 1
+    unit: "%"
+    default: 72
+  - id: iridescence
+    label: Iridescence
+    group: effects
+    type: slider
+    cssProp: --iridescence
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0
+  - id: iridescentOffset
+    label: Iridescent offset
+    group: effects
+    type: slider
+    cssProp: --iridescent-offset
+    min: 0
+    max: 180
+    step: 1
+    unit: "deg"
+    default: 40
+  - id: blur
+    label: Blur
+    group: effects
+    type: slider
+    cssProp: --blur
+    min: 0
+    max: 80
+    step: 1
+    unit: "px"
+    default: 0
+  - id: spinDuration
+    label: Spin duration
+    group: logic
+    type: slider
+    cssProp: --spin-duration
+    min: 4
+    max: 120
+    step: 1
+    unit: "s"
+    default: 30
+  - id: spin
+    label: Animate spin
+    group: logic
+    type: boolean
+    default: false
+---
+
+A conic gradient with the origin, start angle and arc all exposed. The radial mask doubles as falloff and punches a soft hole at the origin, so the conic singularity never shows as a hard point.
+
+```html
+<div class="stark-bg-conic-spectrum">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so any of them can be overridden per instance without editing the
+stylesheet:
+
+```html
+<div class="stark-bg-conic-spectrum" style="--origin-x: 50%; --origin-y: 50%">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.

@@ -1,0 +1,192 @@
+---
+name: liquid-warp
+type: registry:item
+title: Liquid Warp
+description: "A shader-style liquid metal wash: banded gradients, heavy blur, and a metallic conic fold."
+meta:
+  category: "Shader"
+files:
+  - path: liquid-warp.css
+    type: registry:file
+    target: styles/stark/liquid-warp.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    description: "Sets data-preset on the element. Individual controls below still win."
+    options:
+      - value: ""
+        label: Default
+      - value: "mercury"
+        label: Mercury
+      - value: "oilslick"
+        label: Oilslick
+      - value: "silk"
+        label: Silk
+    default: ""
+  - id: bandCount
+    label: Band count
+    group: layout
+    type: slider
+    cssProp: --band-count
+    min: 1
+    max: 16
+    step: 1
+    unit: ""
+    default: 5
+  - id: bandAngle
+    label: Band angle
+    group: layout
+    type: slider
+    cssProp: --band-angle
+    min: 0
+    max: 360
+    step: 1
+    unit: "deg"
+    default: 115
+  - id: warpScale
+    label: Warp scale
+    group: layout
+    type: slider
+    cssProp: --warp-scale
+    min: 0.6
+    max: 3
+    step: 0.05
+    unit: ""
+    default: 1.35
+  - id: surfaceColor
+    label: Base
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#06060a"
+  - id: tint1
+    label: Tint 1
+    group: color
+    type: color
+    cssProp: --tint-1
+    default: "#a78bfa"
+  - id: tint2
+    label: Tint 2
+    group: color
+    type: color
+    cssProp: --tint-2
+    default: "#22d3ee"
+  - id: tint3
+    label: Tint 3
+    group: color
+    type: color
+    cssProp: --tint-3
+    default: "#f472b6"
+  - id: sheenColor
+    label: Sheen
+    group: color
+    type: color
+    cssProp: --sheen-color
+    default: "#ffffff"
+  - id: layerOpacity
+    label: Layer opacity
+    group: color
+    type: slider
+    cssProp: --layer-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.7
+  - id: sheenOpacity
+    label: Sheen opacity
+    group: color
+    type: slider
+    cssProp: --sheen-opacity
+    min: 0
+    max: 1
+    step: 0.02
+    unit: ""
+    default: 0.14
+  - id: saturation
+    label: Saturation
+    group: color
+    type: slider
+    cssProp: --saturation
+    min: 0
+    max: 3
+    step: 0.05
+    unit: ""
+    default: 1.15
+  - id: blur
+    label: Blur
+    group: effects
+    type: slider
+    cssProp: --blur
+    min: 0
+    max: 140
+    step: 2
+    unit: "px"
+    default: 34
+  - id: contrast
+    label: Contrast
+    group: effects
+    type: slider
+    cssProp: --contrast
+    min: 0.4
+    max: 3
+    step: 0.05
+    unit: ""
+    default: 1.25
+  - id: metallic
+    label: Metallic fold
+    group: effects
+    type: slider
+    cssProp: --metallic
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0
+  - id: grainOpacity
+    label: Grain
+    group: effects
+    type: slider
+    cssProp: --grain-opacity
+    min: 0
+    max: 0.3
+    step: 0.01
+    unit: ""
+    default: 0.05
+  - id: flowDuration
+    label: Flow duration
+    group: logic
+    type: slider
+    cssProp: --flow-duration
+    min: 4
+    max: 120
+    step: 1
+    unit: "s"
+    default: 22
+  - id: flow
+    label: Animate flow
+    group: logic
+    type: boolean
+    default: false
+---
+
+A shader look without WebGL. A low band count reads as poured liquid once blurred; raising it tightens toward brushed metal. The metallic conic fold on top is what separates this from a plain blurred gradient.
+
+```html
+<div class="stark-bg-liquid-warp">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so any of them can be overridden per instance without editing the
+stylesheet:
+
+```html
+<div class="stark-bg-liquid-warp" style="--band-count: 5; --band-angle: 115deg">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.

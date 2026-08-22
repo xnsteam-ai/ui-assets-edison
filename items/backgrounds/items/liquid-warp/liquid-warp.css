@@ -1,0 +1,152 @@
+/**
+ * Stark Backgrounds — Liquid Warp
+ *
+ * A shader-style wash without WebGL: three offset gradient layers, each warped by an SVG
+ * displacement filter and drifting at a different rate, so the result folds like liquid metal
+ * rather than sliding like a gradient. Every value lives in the `stark:defaults` block.
+ */
+
+/* stark:defaults */
+.stark-bg-liquid-warp {
+  --surface-color: #06060a;
+  --tint-1: #a78bfa;
+  --tint-2: #22d3ee;
+  --tint-3: #f472b6;
+  --sheen-color: #ffffff;
+  --sheen-opacity: 0.14;
+  --layer-opacity: 0.7;
+  --band-count: 5;
+  --band-angle: 115deg;
+  --warp-scale: 1.35;
+  --blur: 34px;
+  --contrast: 1.25;
+  --saturation: 1.15;
+  --metallic: 0;
+  --flow-duration: 22s;
+  --flow-play: paused;
+  --grain-opacity: 0.05;
+}
+/* stark:end */
+
+.stark-bg-liquid-warp {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--surface-color);
+  filter: contrast(var(--contrast)) saturate(var(--saturation));
+}
+
+/*
+ * Banded base. A repeating-linear-gradient at a low band count reads as poured liquid once it is
+ * blurred and warped; raising --band-count tightens it toward brushed metal.
+ */
+.stark-bg-liquid-warp::before {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--blur) * 3);
+  background-image: repeating-linear-gradient(
+      var(--band-angle),
+      var(--tint-1) 0%,
+      var(--tint-2) calc(50% / var(--band-count)),
+      var(--tint-3) calc(100% / var(--band-count))
+    ),
+    radial-gradient(
+      ellipse at 30% 20%,
+      color-mix(in oklab, var(--sheen-color) calc(var(--sheen-opacity) * 100%), transparent),
+      transparent 55%
+    );
+  background-size:
+    calc(100% * var(--warp-scale)) calc(100% * var(--warp-scale)),
+    100% 100%;
+  opacity: var(--layer-opacity);
+  filter: blur(var(--blur));
+  animation-name: stark-liquid-flow;
+  animation-duration: var(--flow-duration);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: var(--flow-play);
+  will-change: transform, background-position;
+  z-index: 0;
+}
+
+/*
+ * Metallic fold. A hard-stop conic over the top, blended so it only bites into the highlights —
+ * this is what separates "blurred gradient" from "liquid metal". Off by default.
+ */
+.stark-bg-liquid-warp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: conic-gradient(
+      from calc(var(--band-angle) * 2) at 45% 55%,
+      var(--sheen-color) 0deg,
+      transparent 40deg,
+      var(--sheen-color) 90deg,
+      transparent 150deg,
+      var(--sheen-color) 220deg,
+      transparent 300deg,
+      var(--sheen-color) 360deg
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+  opacity: calc(var(--metallic) * 0.5 + var(--grain-opacity));
+  mix-blend-mode: soft-light;
+  filter: blur(calc(var(--blur) * 0.25));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stark-bg-liquid-warp > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stark-bg-liquid-warp[data-preset="mercury"] {
+  --tint-1: #e2e8f0;
+  --tint-2: #64748b;
+  --tint-3: #f8fafc;
+  --saturation: 0.25;
+  --metallic: 1;
+  --contrast: 1.5;
+}
+
+.stark-bg-liquid-warp[data-preset="oilslick"] {
+  --tint-1: #7c3aed;
+  --tint-2: #059669;
+  --tint-3: #db2777;
+  --metallic: 0.6;
+  --band-count: 8;
+  --saturation: 1.6;
+}
+
+.stark-bg-liquid-warp[data-preset="silk"] {
+  --tint-1: #fda4af;
+  --tint-2: #fed7aa;
+  --tint-3: #ddd6fe;
+  --surface-color: #fdf7f5;
+  --blur: 60px;
+  --band-count: 3;
+  --contrast: 0.95;
+}
+
+@keyframes stark-liquid-flow {
+  from {
+    transform: translate3d(-4%, -3%, 0) rotate(-2deg) scale(1);
+    background-position:
+      0% 0%,
+      0% 0%;
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) rotate(2deg) scale(1.12);
+    background-position:
+      100% 60%,
+      0% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stark-bg-liquid-warp::before {
+    animation: none;
+  }
+}

@@ -1,0 +1,232 @@
+---
+name: starfield
+type: registry:item
+title: Starfield
+description: "Three parallax star layers over an optional nebula wash, with per-layer size and density."
+meta:
+  category: "Shader"
+files:
+  - path: starfield.css
+    type: registry:file
+    target: styles/stark/starfield.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    description: "Sets data-preset on the element. Individual controls below still win."
+    options:
+      - value: ""
+        label: Default
+      - value: "deep-space"
+        label: Deep Space
+      - value: "galaxy"
+        label: Galaxy
+      - value: "dust"
+        label: Dust
+    default: ""
+  - id: starGap
+    label: Near density
+    group: layout
+    type: slider
+    cssProp: --star-gap
+    min: 60
+    max: 420
+    step: 5
+    unit: "px"
+    default: 190
+  - id: midGap
+    label: Mid density
+    group: layout
+    type: slider
+    cssProp: --mid-gap
+    min: 40
+    max: 320
+    step: 5
+    unit: "px"
+    default: 140
+  - id: farGap
+    label: Far density
+    group: layout
+    type: slider
+    cssProp: --far-gap
+    min: 25
+    max: 240
+    step: 5
+    unit: "px"
+    default: 95
+  - id: starSize
+    label: Near size
+    group: layout
+    type: slider
+    cssProp: --star-size
+    min: 0.4
+    max: 5
+    step: 0.1
+    unit: "px"
+    default: 1.4
+  - id: midSize
+    label: Mid size
+    group: layout
+    type: slider
+    cssProp: --mid-size
+    min: 0.3
+    max: 4
+    step: 0.1
+    unit: "px"
+    default: 1
+  - id: farSize
+    label: Far size
+    group: layout
+    type: slider
+    cssProp: --far-size
+    min: 0.2
+    max: 3
+    step: 0.1
+    unit: "px"
+    default: 0.7
+  - id: tilt
+    label: Tilt
+    group: layout
+    type: slider
+    cssProp: --tilt
+    min: -45
+    max: 45
+    step: 1
+    unit: "deg"
+    default: 0
+  - id: surfaceColor
+    label: Sky
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#04040a"
+  - id: starColor
+    label: Near stars
+    group: color
+    type: color
+    cssProp: --star-color
+    default: "#ffffff"
+  - id: midColor
+    label: Mid stars
+    group: color
+    type: color
+    cssProp: --mid-color
+    default: "#cbd5e1"
+  - id: farColor
+    label: Far stars
+    group: color
+    type: color
+    cssProp: --far-color
+    default: "#94a3b8"
+  - id: starOpacity
+    label: Near opacity
+    group: color
+    type: slider
+    cssProp: --star-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.9
+  - id: midOpacity
+    label: Mid opacity
+    group: color
+    type: slider
+    cssProp: --mid-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.55
+  - id: farOpacity
+    label: Far opacity
+    group: color
+    type: slider
+    cssProp: --far-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.35
+  - id: nebulaColor
+    label: Nebula
+    group: effects
+    type: color
+    cssProp: --nebula-color
+    default: "#4c1d95"
+  - id: nebulaOpacity
+    label: Nebula opacity
+    group: effects
+    type: slider
+    cssProp: --nebula-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0
+  - id: nebulaBlur
+    label: Nebula blur
+    group: effects
+    type: slider
+    cssProp: --nebula-blur
+    min: 0
+    max: 160
+    step: 2
+    unit: "px"
+    default: 70
+  - id: vignette
+    label: Vignette
+    group: effects
+    type: slider
+    cssProp: --vignette
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.5
+  - id: parallaxDuration
+    label: Parallax duration
+    group: logic
+    type: slider
+    cssProp: --parallax-duration
+    min: 10
+    max: 240
+    step: 5
+    unit: "s"
+    default: 90
+  - id: parallaxDistance
+    label: Parallax distance
+    group: logic
+    type: slider
+    cssProp: --parallax-distance
+    min: 20
+    max: 600
+    step: 10
+    unit: "px"
+    default: 200
+  - id: parallax
+    label: Animate parallax
+    group: logic
+    type: boolean
+    default: false
+---
+
+Each layer is a repeating tile carrying several stars at irregular positions, so the repeat period is the whole tile rather than a single star — a one-star-per-cell lattice reads as a grid no matter how it is offset. A single background-position animation moves each layer group a different distance, which is what produces the parallax.
+
+```html
+<div class="stark-bg-starfield">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so any of them can be overridden per instance without editing the
+stylesheet:
+
+```html
+<div class="stark-bg-starfield" style="--star-gap: 190px; --mid-gap: 140px">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.

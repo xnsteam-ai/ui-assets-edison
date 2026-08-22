@@ -1,0 +1,162 @@
+/**
+ * Stark Backgrounds — Dot Grid
+ *
+ * Every value lives in the `stark:defaults` block below. The effect rules never hard-code a
+ * number, so restyling this background means changing one declaration, and the registry can bake a
+ * customised copy by rewriting that block alone.
+ */
+
+/* stark:defaults */
+.stark-bg-dot-grid {
+  --dot-color: #3f3f46;
+  --dot-size: 2px;
+  --dot-gap: 24px;
+  --dot-opacity: 1;
+  --dot-angle: 0deg;
+  --surface-color: #09090b;
+  --echo-color: #6366f1;
+  --echo-opacity: 0;
+  --echo-scale: 3;
+  --echo-offset: 50%;
+  --fade-start: 30%;
+  --fade-end: 78%;
+  --blur: 0px;
+  --drift-duration: 24s;
+  --drift-distance: 24px;
+  --drift-play: paused;
+}
+/* stark:end */
+
+.stark-bg-dot-grid {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--surface-color);
+}
+
+/* The dots themselves. A pseudo-element rather than the host so the blur, mask and drift
+   animation apply to the pattern without touching the host's own children. */
+.stark-bg-dot-grid::before,
+.stark-bg-dot-grid::after {
+  content: "";
+  position: absolute;
+  /* Overscan so the drift animation never exposes an untiled edge. */
+  inset: calc(-1 * var(--drift-distance) - var(--blur) * 2);
+  background-repeat: repeat;
+  background-position: center;
+  transform: rotate(var(--dot-angle));
+  transform-origin: center;
+  filter: blur(var(--blur));
+  /* Longhands, not the `animation` shorthand: a var() inside the shorthand makes the whole
+     declaration invalid-at-computed-value-time if any single part fails to substitute. */
+  animation-name: stark-dot-grid-drift;
+  animation-duration: var(--drift-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: var(--drift-play);
+  will-change: background-position;
+}
+
+.stark-bg-dot-grid::before {
+  background-image: radial-gradient(
+    circle at center,
+    var(--dot-color) 0,
+    var(--dot-color) calc(var(--dot-size) / 2),
+    transparent calc(var(--dot-size) / 2 + 0.5px)
+  );
+  background-size: var(--dot-gap) var(--dot-gap);
+  opacity: var(--dot-opacity);
+  /* Two masks multiply: a radial vignette and the same ramp vertically, so the grid dissolves
+     into the surface instead of stopping at a hard edge. */
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 var(--fade-start),
+    transparent var(--fade-end)
+  );
+  z-index: 0;
+}
+
+/* Second, larger dot layer — off by default, gives the grid depth when enabled. */
+.stark-bg-dot-grid::after {
+  background-image: radial-gradient(
+    circle at center,
+    var(--echo-color) 0,
+    var(--echo-color) calc(var(--dot-size) / 2),
+    transparent calc(var(--dot-size) / 2 + 0.5px)
+  );
+  background-size: calc(var(--dot-gap) * var(--echo-scale)) calc(var(--dot-gap) * var(--echo-scale));
+  background-position: var(--echo-offset) var(--echo-offset);
+  opacity: var(--echo-opacity);
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 var(--fade-start),
+    transparent var(--fade-end)
+  );
+  animation-direction: reverse;
+  z-index: 0;
+}
+
+.stark-bg-dot-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dot shape variants. `circle` is the default declared above. */
+.stark-bg-dot-grid[data-shape="square"]::before {
+  background-image: linear-gradient(var(--dot-color) var(--dot-size), transparent 0),
+    linear-gradient(90deg, var(--dot-color) var(--dot-size), transparent 0);
+  background-size:
+    var(--dot-gap) var(--dot-gap),
+    var(--dot-gap) var(--dot-gap);
+  background-blend-mode: multiply;
+}
+
+.stark-bg-dot-grid[data-shape="cross"]::before {
+  background-image: linear-gradient(
+      var(--dot-color) calc(var(--dot-size) / 2),
+      transparent calc(var(--dot-size) / 2)
+    ),
+    linear-gradient(90deg, var(--dot-color) calc(var(--dot-size) / 2), transparent calc(var(--dot-size) / 2));
+  background-size:
+    var(--dot-gap) calc(var(--dot-gap) / 3),
+    calc(var(--dot-gap) / 3) var(--dot-gap);
+}
+
+/* Presets re-declare the variables; an inline style from the editor still wins over these. */
+.stark-bg-dot-grid[data-preset="blueprint"] {
+  --dot-color: #38bdf8;
+  --surface-color: #04121f;
+  --dot-opacity: 0.55;
+  --dot-gap: 18px;
+}
+
+.stark-bg-dot-grid[data-preset="paper"] {
+  --dot-color: #a1a1aa;
+  --surface-color: #fafaf9;
+  --dot-size: 1.5px;
+  --dot-gap: 20px;
+}
+
+.stark-bg-dot-grid[data-preset="nebula"] {
+  --dot-color: #a78bfa;
+  --surface-color: #0b0616;
+  --echo-color: #f472b6;
+  --echo-opacity: 0.5;
+  --drift-play: running;
+}
+
+@keyframes stark-dot-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: var(--drift-distance) var(--drift-distance);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stark-bg-dot-grid::before,
+  .stark-bg-dot-grid::after {
+    animation: none;
+  }
+}

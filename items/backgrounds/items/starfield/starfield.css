@@ -1,0 +1,255 @@
+/**
+ * Stark Backgrounds — Starfield
+ *
+ * Three star layers at different sizes and speeds, so parallax reads as depth, over an optional
+ * nebula wash. Each layer is a repeating tile carrying several stars at irregular positions, so
+ * the field never reads as a grid. Values live in `stark:defaults`.
+ */
+
+/* stark:defaults */
+.stark-bg-starfield {
+  --surface-color: #04040a;
+  --star-color: #ffffff;
+  --star-size: 1.4px;
+  --star-gap: 190px;
+  --star-opacity: 0.9;
+  --mid-color: #cbd5e1;
+  --mid-size: 1px;
+  --mid-gap: 140px;
+  --mid-opacity: 0.55;
+  --far-color: #94a3b8;
+  --far-size: 0.7px;
+  --far-gap: 95px;
+  --far-opacity: 0.35;
+  --nebula-color: #4c1d95;
+  --nebula-opacity: 0;
+  --nebula-blur: 70px;
+  --tilt: 0deg;
+  --vignette: 0.5;
+  --parallax-duration: 90s;
+  --parallax-distance: 200px;
+  --parallax-play: paused;
+}
+/* stark:end */
+
+.stark-bg-starfield {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--surface-color);
+}
+
+/* Nebula bed, behind every star layer. */
+.stark-bg-starfield::before {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--nebula-blur) * 2);
+  background-image: radial-gradient(
+      ellipse at 30% 35%,
+      color-mix(in oklab, var(--nebula-color) 80%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 72% 68%,
+      color-mix(in oklab, var(--nebula-color) 55%, transparent),
+      transparent 50%
+    );
+  opacity: var(--nebula-opacity);
+  filter: blur(var(--nebula-blur));
+  z-index: 0;
+}
+
+/*
+ * Stars, not a lattice.
+ *
+ * One radial gradient per cell tiles into an obvious grid no matter how the layers are offset —
+ * the eye finds the rhythm immediately. Instead each layer is a tile carrying several stars at
+ * irregular positions, so the repeat period is the whole tile rather than a single star. Three
+ * such tiles at co-prime sizes overlap into a field with no readable structure.
+ */
+.stark-bg-starfield::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--parallax-distance));
+  background-image: /* Near layer — 5 scattered stars per tile. */
+    radial-gradient(
+      circle at 17% 23%,
+      color-mix(in oklab, var(--star-color) calc(var(--star-opacity) * 100%), transparent)
+        var(--star-size),
+      transparent calc(var(--star-size) + 0.6px)
+    ),
+    radial-gradient(
+      circle at 71% 9%,
+      color-mix(in oklab, var(--star-color) calc(var(--star-opacity) * 100%), transparent)
+        calc(var(--star-size) * 0.7),
+      transparent calc(var(--star-size) * 0.7 + 0.6px)
+    ),
+    radial-gradient(
+      circle at 43% 61%,
+      color-mix(in oklab, var(--star-color) calc(var(--star-opacity) * 100%), transparent)
+        var(--star-size),
+      transparent calc(var(--star-size) + 0.6px)
+    ),
+    radial-gradient(
+      circle at 88% 77%,
+      color-mix(in oklab, var(--star-color) calc(var(--star-opacity) * 85%), transparent)
+        calc(var(--star-size) * 0.8),
+      transparent calc(var(--star-size) * 0.8 + 0.6px)
+    ),
+    radial-gradient(
+      circle at 6% 88%,
+      color-mix(in oklab, var(--star-color) calc(var(--star-opacity) * 70%), transparent)
+        calc(var(--star-size) * 0.6),
+      transparent calc(var(--star-size) * 0.6 + 0.5px)
+    ),
+    /* Mid layer — 4 per tile. */
+    radial-gradient(
+      circle at 29% 41%,
+      color-mix(in oklab, var(--mid-color) calc(var(--mid-opacity) * 100%), transparent)
+        var(--mid-size),
+      transparent calc(var(--mid-size) + 0.5px)
+    ),
+    radial-gradient(
+      circle at 83% 34%,
+      color-mix(in oklab, var(--mid-color) calc(var(--mid-opacity) * 100%), transparent)
+        calc(var(--mid-size) * 0.75),
+      transparent calc(var(--mid-size) * 0.75 + 0.5px)
+    ),
+    radial-gradient(
+      circle at 12% 72%,
+      color-mix(in oklab, var(--mid-color) calc(var(--mid-opacity) * 90%), transparent)
+        var(--mid-size),
+      transparent calc(var(--mid-size) + 0.5px)
+    ),
+    radial-gradient(
+      circle at 57% 92%,
+      color-mix(in oklab, var(--mid-color) calc(var(--mid-opacity) * 80%), transparent)
+        calc(var(--mid-size) * 0.7),
+      transparent calc(var(--mid-size) * 0.7 + 0.5px)
+    ),
+    /* Far layer — 4 per tile, the dust. */
+    radial-gradient(
+      circle at 38% 14%,
+      color-mix(in oklab, var(--far-color) calc(var(--far-opacity) * 100%), transparent)
+        var(--far-size),
+      transparent calc(var(--far-size) + 0.4px)
+    ),
+    radial-gradient(
+      circle at 91% 52%,
+      color-mix(in oklab, var(--far-color) calc(var(--far-opacity) * 100%), transparent)
+        var(--far-size),
+      transparent calc(var(--far-size) + 0.4px)
+    ),
+    radial-gradient(
+      circle at 22% 96%,
+      color-mix(in oklab, var(--far-color) calc(var(--far-opacity) * 100%), transparent)
+        calc(var(--far-size) * 0.8),
+      transparent calc(var(--far-size) * 0.8 + 0.4px)
+    ),
+    radial-gradient(
+      circle at 64% 27%,
+      color-mix(in oklab, var(--far-color) calc(var(--far-opacity) * 85%), transparent)
+        calc(var(--far-size) * 0.9),
+      transparent calc(var(--far-size) * 0.9 + 0.4px)
+    );
+  /* Each layer's five/four stars share one tile size, so the gap control still reads as density. */
+  background-size:
+    var(--star-gap) var(--star-gap),
+    var(--star-gap) var(--star-gap),
+    var(--star-gap) var(--star-gap),
+    var(--star-gap) var(--star-gap),
+    var(--star-gap) var(--star-gap),
+    var(--mid-gap) var(--mid-gap),
+    var(--mid-gap) var(--mid-gap),
+    var(--mid-gap) var(--mid-gap),
+    var(--mid-gap) var(--mid-gap),
+    var(--far-gap) var(--far-gap),
+    var(--far-gap) var(--far-gap),
+    var(--far-gap) var(--far-gap),
+    var(--far-gap) var(--far-gap);
+  transform: rotate(var(--tilt));
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 calc(100% - var(--vignette) * 70%),
+    transparent 100%
+  );
+  animation-name: stark-starfield-parallax;
+  animation-duration: var(--parallax-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: var(--parallax-play);
+  will-change: background-position;
+  z-index: 0;
+}
+
+.stark-bg-starfield > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stark-bg-starfield[data-preset="deep-space"] {
+  --nebula-opacity: 0.6;
+  --nebula-color: #1e1b4b;
+  --vignette: 0.8;
+}
+
+.stark-bg-starfield[data-preset="galaxy"] {
+  --nebula-opacity: 0.75;
+  --nebula-color: #7e22ce;
+  --star-gap: 130px;
+  --tilt: -18deg;
+  --parallax-play: running;
+}
+
+.stark-bg-starfield[data-preset="dust"] {
+  --star-opacity: 0.4;
+  --mid-opacity: 0.3;
+  --far-opacity: 0.5;
+  --far-gap: 60px;
+  --vignette: 0.2;
+}
+
+/*
+ * Parallax: the three layer groups translate different distances in the same animation, which is
+ * what separates them in depth. Near moves fastest, dust barely at all.
+ */
+@keyframes stark-starfield-parallax {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      var(--parallax-distance) calc(var(--parallax-distance) * 0.4),
+      var(--parallax-distance) calc(var(--parallax-distance) * 0.4),
+      var(--parallax-distance) calc(var(--parallax-distance) * 0.4),
+      var(--parallax-distance) calc(var(--parallax-distance) * 0.4),
+      var(--parallax-distance) calc(var(--parallax-distance) * 0.4),
+      calc(var(--parallax-distance) * 0.6) calc(var(--parallax-distance) * 0.24),
+      calc(var(--parallax-distance) * 0.6) calc(var(--parallax-distance) * 0.24),
+      calc(var(--parallax-distance) * 0.6) calc(var(--parallax-distance) * 0.24),
+      calc(var(--parallax-distance) * 0.6) calc(var(--parallax-distance) * 0.24),
+      calc(var(--parallax-distance) * 0.3) calc(var(--parallax-distance) * 0.12),
+      calc(var(--parallax-distance) * 0.3) calc(var(--parallax-distance) * 0.12),
+      calc(var(--parallax-distance) * 0.3) calc(var(--parallax-distance) * 0.12),
+      calc(var(--parallax-distance) * 0.3) calc(var(--parallax-distance) * 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stark-bg-starfield::after {
+    animation: none;
+  }
+}

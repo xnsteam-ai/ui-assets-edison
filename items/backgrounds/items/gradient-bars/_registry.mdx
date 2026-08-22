@@ -1,0 +1,206 @@
+---
+name: gradient-bars
+type: registry:item
+title: Gradient Bars
+description: "A field of staggered vertical bars carrying a shared gradient, with an optional glow bed."
+meta:
+  category: "Gradient"
+files:
+  - path: gradient-bars.css
+    type: registry:file
+    target: styles/stark/gradient-bars.css
+controls:
+  - id: preset
+    label: Preset
+    group: layout
+    type: select
+    description: "Sets data-preset on the element. Individual controls below still win."
+    options:
+      - value: ""
+        label: Default
+      - value: "equaliser"
+        label: Equaliser
+      - value: "skyline"
+        label: Skyline
+      - value: "ember"
+        label: Ember
+    default: ""
+  - id: barWidth
+    label: Bar width
+    group: layout
+    type: slider
+    cssProp: --bar-width
+    min: 4
+    max: 120
+    step: 1
+    unit: "px"
+    default: 28
+  - id: barGap
+    label: Bar gap
+    group: layout
+    type: slider
+    cssProp: --bar-gap
+    min: 0
+    max: 80
+    step: 1
+    unit: "px"
+    default: 12
+  - id: fadeStart
+    label: Solid height
+    group: layout
+    type: slider
+    cssProp: --fade-start
+    min: 0
+    max: 100
+    step: 1
+    unit: "%"
+    default: 45
+  - id: stagger
+    label: Stagger depth
+    group: layout
+    type: slider
+    cssProp: --stagger
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.4
+  - id: staggerPeriod
+    label: Stagger period
+    group: layout
+    type: slider
+    cssProp: --stagger-period
+    min: 2
+    max: 20
+    step: 1
+    unit: ""
+    default: 7
+  - id: skew
+    label: Skew
+    group: layout
+    type: slider
+    cssProp: --skew
+    min: -30
+    max: 30
+    step: 1
+    unit: "deg"
+    default: 0
+  - id: align
+    label: Anchor
+    group: layout
+    type: select
+    options:
+      - value: ""
+        label: Bottom
+      - value: "top"
+        label: Top
+    default: ""
+  - id: surfaceColor
+    label: Base
+    group: color
+    type: color
+    cssProp: --surface-color
+    default: "#08080b"
+  - id: barFrom
+    label: Bar from
+    group: color
+    type: color
+    cssProp: --bar-from
+    default: "#6366f1"
+  - id: barTo
+    label: Bar to
+    group: color
+    type: color
+    cssProp: --bar-to
+    default: "#0ea5e9"
+  - id: barOpacity
+    label: Bar opacity
+    group: color
+    type: slider
+    cssProp: --bar-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0.85
+  - id: barAngle
+    label: Ramp angle
+    group: color
+    type: slider
+    cssProp: --bar-angle
+    min: 0
+    max: 360
+    step: 1
+    unit: "deg"
+    default: 180
+  - id: barSoftness
+    label: Edge softness
+    group: border
+    type: slider
+    cssProp: --bar-softness
+    min: 0
+    max: 20
+    step: 0.5
+    unit: "px"
+    default: 0
+  - id: glowColor
+    label: Glow
+    group: effects
+    type: color
+    cssProp: --glow-color
+    default: "#6366f1"
+  - id: glowOpacity
+    label: Glow opacity
+    group: effects
+    type: slider
+    cssProp: --glow-opacity
+    min: 0
+    max: 1
+    step: 0.05
+    unit: ""
+    default: 0
+  - id: glowBlur
+    label: Glow blur
+    group: effects
+    type: slider
+    cssProp: --glow-blur
+    min: 0
+    max: 140
+    step: 2
+    unit: "px"
+    default: 40
+  - id: pulseDuration
+    label: Pulse duration
+    group: logic
+    type: slider
+    cssProp: --pulse-duration
+    min: 1
+    max: 30
+    step: 0.5
+    unit: "s"
+    default: 6
+  - id: pulse
+    label: Animate pulse
+    group: logic
+    type: boolean
+    default: false
+---
+
+The bars are one `repeating-linear-gradient` multiplied with a colour ramp, not N elements — so the bar count follows the element width with no markup. A third gradient on a period that does not divide the bar pitch varies neighbouring bars' brightness.
+
+```html
+<div class="stark-bg-gradient-bars">
+  <!-- your content -->
+</div>
+```
+
+Every value is a custom property, so any of them can be overridden per instance without editing the
+stylesheet:
+
+```html
+<div class="stark-bg-gradient-bars" style="--bar-width: 28px; --bar-gap: 12px">…</div>
+```
+
+**Presets** set `data-preset` on the element. Choosing one in the preview changes what you see, but
+the exported CSS keeps the default values in its `stark:defaults` block — add the attribute in your
+own markup to use a preset.
