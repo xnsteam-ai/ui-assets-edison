@@ -1,12 +1,13 @@
 # Stark Backgrounds
 
-Pure-CSS surfaces: shaders, background patterns, and gradients. Every item publishes **one
+Pure-CSS surfaces: background patterns and shaders. Every item publishes **one
 stylesheet and nothing else** — no JavaScript, no raster assets, no runtime.
 
 ## Categories
 
-`meta.category` is one of **Background**, **Gradient**, or **Shader**. The homepage renders one
-sub-headed grid per category inside the Backgrounds section.
+`meta.category` is either **Background** or **Shader** — those are the only two. This registry does
+not carry a Gradient category; gradients are a technique the items use, not a category they are
+filed under. The homepage renders one sub-headed grid per category inside the Backgrounds section.
 
 ## The custom-property contract
 
@@ -58,6 +59,6 @@ Every animated item wraps its animation in `@media (prefers-reduced-motion: redu
 ## Authoring a new item
 
 `_registry.mdx` and `_preview.tsx` are mechanical from a control table; only the CSS is hand-written.
-The generator used for the first eight lives in the session scratchpad, but the contract above is the
+The generator used for the initial set lives in the session scratchpad, but the contract above is the
 thing to preserve — an item that satisfies it works with the panel, the exporter, and the share link
 with no further wiring.

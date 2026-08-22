@@ -60,7 +60,7 @@ export const subRegistries = {
     name: "Stark Backgrounds",
     namespace: "@stark-backgrounds",
     description:
-      "Stark's pure-CSS surface layer: shaders, background patterns, and gradients, every value exposed as an editable custom property.",
+      "Stark's pure-CSS surface layer: background patterns and shaders, every value exposed as an editable custom property.",
   },
 } as const;
 
