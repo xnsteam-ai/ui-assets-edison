@@ -1,0 +1,30 @@
+/**
+ * airjelly logo.
+ *
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
+ *
+ * The airjelly name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
+ */
+
+import type * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+function AiLogoAirjelly({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      role="img"
+      aria-label="airjelly"
+      className={cn("size-6", className)}
+      {...props}
+    >
+      <path d="M16.962 13.071c1.667-.022 2.832 8.685 1.297 9.21-1.992.68-1.278-7.563-1.275-7.6 0 0-3.58 9.553-6.135 8.909-2.46-.62 4.445-10.495 6.113-10.519zM3.5 20.471C1.246 17.29 12.668 9.25 16.83 9.812c4.162.563 6.387 8.328 4.83 8.91-1.556.58-2.597-6.608-4.83-6.608-2.354 0-11.076 11.54-13.33 8.357zM1.747 7.711c3.402-5.183 12.01-8.536 17.276-5.183 5.266 3.354 5.529 10.13 4.74 11.087-.87 1.057-1.637-.882-3.666-3.173-4.411-4.977-11.94 1.396-15.9 3.505-2.481 1.322-6.33-.323-2.45-6.235z" fill="#00C8FF">
+      </path>
+    </svg>
+  );
+}
+
+export { AiLogoAirjelly };

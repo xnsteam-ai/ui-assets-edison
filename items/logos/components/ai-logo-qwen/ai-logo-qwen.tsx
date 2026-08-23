@@ -1,12 +1,11 @@
 /**
  * Qwen logo.
  *
- * Artwork from @lobehub/icons-static-svg — MIT licensed, https://github.com/lobehub/lobe-icons
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
  *
- * The Qwen name and logo are trademarks of Alibaba Cloud (https://qwen.ai). They are
- * reproduced here to identify Alibaba Cloud's models, and remain the property of their owner —
- * this project claims no rights in them. Check Alibaba Cloud's brand guidelines before using the
- * mark in your own product.
+ * The Qwen name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";

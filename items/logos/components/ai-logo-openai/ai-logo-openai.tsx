@@ -1,24 +1,23 @@
 /**
- * OpenAI logo.
+ * Open AI logo.
  *
- * Artwork from @lobehub/icons-static-svg — MIT licensed, https://github.com/lobehub/lobe-icons
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
  *
- * The OpenAI name and logo are trademarks of OpenAI (https://openai.com). They are
- * reproduced here to identify OpenAI's models, and remain the property of their owner —
- * this project claims no rights in them. Check OpenAI's brand guidelines before using the
- * mark in your own product.
+ * The Open AI name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function AiLogoOpenAI({ className, ...props }: React.ComponentProps<"svg">) {
+function AiLogoOpenai({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <svg
       viewBox="0 0 24 24"
       role="img"
-      aria-label="OpenAI"
+      aria-label="Open AI"
       className={cn("size-6", className)}
       {...props}
     >
@@ -28,4 +27,4 @@ function AiLogoOpenAI({ className, ...props }: React.ComponentProps<"svg">) {
   );
 }
 
-export { AiLogoOpenAI };
+export { AiLogoOpenai };

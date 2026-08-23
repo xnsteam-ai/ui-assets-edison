@@ -1,12 +1,11 @@
 /**
- * Grok logo.
+ * grok logo.
  *
- * Artwork from @lobehub/icons-static-svg — MIT licensed, https://github.com/lobehub/lobe-icons
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
  *
- * The Grok name and logo are trademarks of xAI (https://x.ai). They are
- * reproduced here to identify xAI's models, and remain the property of their owner —
- * this project claims no rights in them. Check xAI's brand guidelines before using the
- * mark in your own product.
+ * The grok name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";
@@ -18,7 +17,7 @@ function AiLogoGrok({ className, ...props }: React.ComponentProps<"svg">) {
     <svg
       viewBox="0 0 24 24"
       role="img"
-      aria-label="Grok"
+      aria-label="grok"
       className={cn("size-6", className)}
       {...props}
     >

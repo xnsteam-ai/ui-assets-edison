@@ -1,24 +1,23 @@
 /**
- * DeepSeek logo.
+ * Deep Seek logo.
  *
- * Artwork from @lobehub/icons-static-svg — MIT licensed, https://github.com/lobehub/lobe-icons
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
  *
- * The DeepSeek name and logo are trademarks of DeepSeek (https://deepseek.com). They are
- * reproduced here to identify DeepSeek's models, and remain the property of their owner —
- * this project claims no rights in them. Check DeepSeek's brand guidelines before using the
- * mark in your own product.
+ * The Deep Seek name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function AiLogoDeepSeek({ className, ...props }: React.ComponentProps<"svg">) {
+function AiLogoDeepseek({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <svg
       viewBox="0 0 24 24"
       role="img"
-      aria-label="DeepSeek"
+      aria-label="Deep Seek"
       className={cn("size-6", className)}
       {...props}
     >
@@ -28,4 +27,4 @@ function AiLogoDeepSeek({ className, ...props }: React.ComponentProps<"svg">) {
   );
 }
 
-export { AiLogoDeepSeek };
+export { AiLogoDeepseek };

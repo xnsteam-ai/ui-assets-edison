@@ -1,0 +1,76 @@
+/**
+ * apertis logo.
+ *
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
+ *
+ * The apertis name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
+ */
+
+import type * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+function AiLogoApertis({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      role="img"
+      aria-label="apertis"
+      className={cn("size-6", className)}
+      {...props}
+    >
+      <g opacity=".45">
+      <path d="M3.474 24l3.943-8.21H9.34L3.474 24z" fill="url(#apertis-lobe-icons-apertis-0-_R_0_)">
+      </path>
+      <path d="M24 24h-4.895l-3.882-8.362 1.356-3.164H9.01L15 0l9 24z" fill="url(#apertis-lobe-icons-apertis-1-_R_0_)">
+      </path>
+      </g>
+      <path d="M15.743 12.474H7.737l-1.263 3.315L0 24 10.737 0l5.006 12.474z" fill="url(#apertis-lobe-icons-apertis-2-_R_0_)">
+      </path>
+      <path d="M16.146 13.48L20.369 24h-5.21l-3.473-8.21h3.473l.989-2.31z" fill="url(#apertis-lobe-icons-apertis-3-_R_0_)">
+      </path>
+      <defs>
+      <linearGradient gradientUnits="userSpaceOnUse" id="apertis-lobe-icons-apertis-0-_R_0_" x1="12" x2="12" y1="0" y2="24">
+      <stop stopColor="#14B8A6">
+      </stop>
+      <stop offset=".5" stopColor="#0D7D72">
+      </stop>
+      <stop offset="1" stopColor="#044F47">
+      </stop>
+      </linearGradient>
+      <linearGradient gradientUnits="userSpaceOnUse" id="apertis-lobe-icons-apertis-1-_R_0_" x1="12" x2="12" y1="0" y2="24">
+      <stop stopColor="#14B8A6">
+      </stop>
+      <stop offset=".5" stopColor="#0D7D72">
+      </stop>
+      <stop offset="1" stopColor="#044F47">
+      </stop>
+      </linearGradient>
+      <linearGradient gradientUnits="userSpaceOnUse" id="apertis-lobe-icons-apertis-2-_R_0_" x1="0" x2="0" y1="0" y2="24">
+      <stop stopColor="#5EEAD4">
+      </stop>
+      <stop offset=".25" stopColor="#2DD4BF">
+      </stop>
+      <stop offset=".65" stopColor="#0D9488">
+      </stop>
+      <stop offset="1" stopColor="#0A7A6F">
+      </stop>
+      </linearGradient>
+      <linearGradient gradientUnits="userSpaceOnUse" id="apertis-lobe-icons-apertis-3-_R_0_" x1="0" x2="0" y1="0" y2="24">
+      <stop stopColor="#5EEAD4">
+      </stop>
+      <stop offset=".25" stopColor="#2DD4BF">
+      </stop>
+      <stop offset=".65" stopColor="#0D9488">
+      </stop>
+      <stop offset="1" stopColor="#0A7A6F">
+      </stop>
+      </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+export { AiLogoApertis };

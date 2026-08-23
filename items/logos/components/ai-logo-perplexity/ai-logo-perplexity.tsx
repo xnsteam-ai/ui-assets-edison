@@ -1,12 +1,11 @@
 /**
  * Perplexity logo.
  *
- * Artwork from @lobehub/icons-static-svg — MIT licensed, https://github.com/lobehub/lobe-icons
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
  *
- * The Perplexity name and logo are trademarks of Perplexity AI (https://perplexity.ai). They are
- * reproduced here to identify Perplexity AI's models, and remain the property of their owner —
- * this project claims no rights in them. Check Perplexity AI's brand guidelines before using the
- * mark in your own product.
+ * The Perplexity name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";

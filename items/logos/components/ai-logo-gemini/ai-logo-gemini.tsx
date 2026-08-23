@@ -1,12 +1,11 @@
 /**
  * Gemini logo.
  *
- * Artwork from @lobehub/icons-static-svg — MIT licensed, https://github.com/lobehub/lobe-icons
+ * Artwork from @lobehub/icons-static-svg — MIT licensed.
+ * https://github.com/lobehub/lobe-icons
  *
- * The Gemini name and logo are trademarks of Google (https://gemini.google.com). They are
- * reproduced here to identify Google's models, and remain the property of their owner —
- * this project claims no rights in them. Check Google's brand guidelines before using the
- * mark in your own product.
+ * The Gemini name and logo are trademarks of their respective owner, reproduced here to identify
+ * them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";
