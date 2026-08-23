@@ -1,24 +1,23 @@
 /**
- * Arch Linux logo.
+ * Archlinux logo.
  *
  * Artwork from gilbarbara/logos — CC0-1.0, dedicated to the public domain.
  * https://github.com/gilbarbara/logos
  *
- * The Arch Linux name and logo are trademarks of Arch Linux (https://archlinux.org). They are
- * reproduced here to identify Arch Linux, and remain the property of their owner. Check their
- * brand guidelines before using the mark in your own product.
+ * The Archlinux name and logo are trademarks of their respective owner, reproduced here to
+ * identify them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function LogoArchLinux({ className, ...props }: React.ComponentProps<"svg">) {
+function LogoArchlinux({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <svg
       viewBox="0 0 256 256"
       role="img"
-      aria-label="Arch Linux"
+      aria-label="Archlinux"
       className={cn("size-6", className)}
       {...props}
     >
@@ -30,4 +29,4 @@ function LogoArchLinux({ className, ...props }: React.ComponentProps<"svg">) {
   );
 }
 
-export { LogoArchLinux };
+export { LogoArchlinux };

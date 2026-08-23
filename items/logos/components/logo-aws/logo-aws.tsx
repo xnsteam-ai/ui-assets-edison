@@ -4,16 +4,15 @@
  * Artwork from gilbarbara/logos — CC0-1.0, dedicated to the public domain.
  * https://github.com/gilbarbara/logos
  *
- * The AWS name and logo are trademarks of Amazon (https://aws.amazon.com). They are
- * reproduced here to identify Amazon, and remain the property of their owner. Check their
- * brand guidelines before using the mark in your own product.
+ * The AWS name and logo are trademarks of their respective owner, reproduced here to
+ * identify them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function LogoAWS({ className, ...props }: React.ComponentProps<"svg">) {
+function LogoAws({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <svg
       viewBox="0 0 256 153"
@@ -32,4 +31,4 @@ function LogoAWS({ className, ...props }: React.ComponentProps<"svg">) {
   );
 }
 
-export { LogoAWS };
+export { LogoAws };

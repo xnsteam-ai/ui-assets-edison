@@ -4,9 +4,8 @@
  * Artwork from gilbarbara/logos — CC0-1.0, dedicated to the public domain.
  * https://github.com/gilbarbara/logos
  *
- * The Unity name and logo are trademarks of Unity Technologies (https://unity.com). They are
- * reproduced here to identify Unity Technologies, and remain the property of their owner. Check their
- * brand guidelines before using the mark in your own product.
+ * The Unity name and logo are trademarks of their respective owner, reproduced here to
+ * identify them. Check the owner's brand guidelines before using the mark in your own product.
  */
 
 import type * as React from "react";

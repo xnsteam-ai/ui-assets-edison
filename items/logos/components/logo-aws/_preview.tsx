@@ -1,11 +1,11 @@
 "use client";
 
-import { LogoAWS } from "./logo-aws";
+import { LogoAws } from "./logo-aws";
 
 export function Preview() {
   return (
     <div className="grid size-full place-items-center bg-white p-[24%]">
-      <LogoAWS className="size-full" />
+      <LogoAws className="size-full" />
     </div>
   );
 }
