@@ -1,0 +1,55 @@
+---
+name: downshift-combobox
+type: registry:component
+title: "Downshift Combobox"
+description: "An accessible combobox built on Downshift, with async loading, multi-select and keyboard navigation."
+dependencies:
+  - "downshift"
+registryDependencies:
+  - "input"
+  - "popover"
+  - "scroll-area"
+meta:
+  sourceKind: "mirrored"
+  project: "downshift-shadcn-combobox"
+  author: "OmerMakesStuff"
+  license: "MIT"
+  sourceUrl: "https://github.com/OmerMakesStuff/downshift-shadcn-combobox"
+  homepage: "https://downshift-shadcn-combobox.vercel.app"
+  tags: "combobox, autocomplete, a11y"
+files:
+  - path: combobox.tsx
+    type: registry:ui
+    target: "components/ui/combobox/combobox.tsx"
+  - path: combobox-content.tsx
+    type: registry:ui
+    target: "components/ui/combobox/combobox-content.tsx"
+  - path: combobox-empty.tsx
+    type: registry:ui
+    target: "components/ui/combobox/combobox-empty.tsx"
+  - path: combobox-input.tsx
+    type: registry:ui
+    target: "components/ui/combobox/combobox-input.tsx"
+  - path: combobox-item.tsx
+    type: registry:ui
+    target: "components/ui/combobox/combobox-item.tsx"
+  - path: context.ts
+    type: registry:ui
+    target: "components/ui/combobox/context.ts"
+  - path: index.ts
+    type: registry:ui
+    target: "components/ui/combobox/index.ts"
+  - path: types.ts
+    type: registry:ui
+    target: "components/ui/combobox/types.ts"
+---
+
+An accessible combobox built on Downshift, with async loading, multi-select and keyboard navigation.
+
+Mirrored from [downshift-shadcn-combobox](https://github.com/OmerMakesStuff/downshift-shadcn-combobox) by OmerMakesStuff, MIT licensed.
+Source is copied verbatim from the project's own registry — the same code you would get
+installing from them directly. Copyright remains with the original author.
+
+```bash
+npx shadcn@latest add @stark-external/downshift-combobox
+```

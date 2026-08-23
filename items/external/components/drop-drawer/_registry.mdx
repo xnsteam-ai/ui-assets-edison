@@ -1,0 +1,49 @@
+---
+name: drop-drawer
+type: registry:component
+title: "Drop Drawer"
+description: "A dropdown menu on desktop that becomes a bottom drawer on mobile, with the same menu markup."
+dependencies:
+  - "framer-motion"
+  - "framer-motion"
+  - "lucide-react"
+  - "vaul"
+  - "clsx"
+  - "tailwind-merge"
+  - "@radix-ui/react-dropdown-menu"
+registryDependencies:
+  - "dropdown-menu"
+  - "drawer"
+  - "use-mobile"
+meta:
+  sourceKind: "mirrored"
+  project: "DropDrawer"
+  author: "jiaweing"
+  license: "MIT"
+  sourceUrl: "https://github.com/jiaweing/DropDrawer"
+  homepage: "https://dropdrawer.jiaweing.com"
+  tags: "menu, drawer, responsive"
+files:
+  - path: dropdrawer.tsx
+    type: registry:component
+  - path: components\ui\dropdrawer.tsx
+    type: registry:ui
+  - path: components\ui\drawer.tsx
+    type: registry:ui
+  - path: lib\utils.ts
+    type: registry:lib
+  - path: components\ui\dropdown-menu.tsx
+    type: registry:ui
+  - path: hooks\use-mobile.ts
+    type: registry:hook
+---
+
+A dropdown menu on desktop that becomes a bottom drawer on mobile, with the same menu markup.
+
+Mirrored from [DropDrawer](https://github.com/jiaweing/DropDrawer) by jiaweing, MIT licensed.
+Source is copied verbatim from the project's own registry — the same code you would get
+installing from them directly. Copyright remains with the original author.
+
+```bash
+npx shadcn@latest add @stark-external/drop-drawer
+```
