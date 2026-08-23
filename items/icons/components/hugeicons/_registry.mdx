@@ -1,0 +1,28 @@
+---
+name: hugeicons
+type: registry:ui
+title: "HugeIcons"
+description: "A wrapper over the full HugeIcons free library — roughly 7,000 icons from one install."
+dependencies:
+  - "@hugeicons/react"
+  - "@hugeicons/core-free-icons"
+meta:
+  sourceUrl: "https://hugeicons.com"
+  license: "MIT"
+---
+
+The curated Stark icons are inlined and dependency-free. This item is the other option: one install
+that gives you the **entire HugeIcons free library**, roughly 7,000 icons, tree-shaken so you only
+ship the ones you import.
+
+```tsx
+import { Rocket01Icon, Settings01Icon } from "@hugeicons/core-free-icons";
+
+import { HugeIcon } from "@/components/ui/hugeicons";
+
+<HugeIcon icon={Rocket01Icon} className="size-6" />
+<HugeIcon icon={Settings01Icon} size={32} strokeWidth={2} />
+```
+
+Both packages are MIT and carry no dependencies beyond React. Browse the full set at
+[hugeicons.com](https://hugeicons.com).

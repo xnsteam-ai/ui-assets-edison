@@ -3,5 +3,5 @@
 import { IconUser } from "./icon-user";
 
 export function Preview() {
-  return <IconUser className="size-6" />;
+  return <IconUser className="size-7" />;
 }

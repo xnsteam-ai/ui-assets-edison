@@ -3,5 +3,5 @@
 import { IconStar } from "./icon-star";
 
 export function Preview() {
-  return <IconStar className="size-6" />;
+  return <IconStar className="size-7" />;
 }

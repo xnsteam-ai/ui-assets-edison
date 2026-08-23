@@ -1,14 +1,22 @@
 ---
 name: icon-star
 type: registry:ui
-title: Star
-description: The Star icon from the Stark icon set, drawn on a 24px grid with a 1.75 stroke.
+title: "Star"
+description: "The star icon, drawn in a clean, minimal, bold visual language."
+meta:
+  sourceUrl: "https://hugeicons.com"
+  license: "MIT"
 ---
 
-Inherits `currentColor` and sizes with `className`, so it matches the text it sits beside.
+The star icon. Artwork from
+[HugeIcons](https://hugeicons.com) under the MIT licence, inlined so the component installs with
+**no runtime dependency**.
 
 ```tsx
 import { IconStar } from "@/components/ui/icon-star";
 
-<IconStar className="size-5" />
+<IconStar className="size-6" />
 ```
+
+Need more than the curated set? `@stark-icons/hugeicons` wraps the full library of roughly 7,000
+free icons.

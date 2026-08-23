@@ -3,5 +3,5 @@
 import { IconEye } from "./icon-eye";
 
 export function Preview() {
-  return <IconEye className="size-6" />;
+  return <IconEye className="size-7" />;
 }
