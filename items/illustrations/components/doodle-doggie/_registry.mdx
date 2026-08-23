@@ -1,0 +1,32 @@
+---
+name: doodle-doggie
+type: registry:ui
+title: "Doggie"
+description: "A loose hand-drawn doggie scene, recolourable through ink and accent."
+meta:
+  sourceUrl: "https://www.opendoodles.com"
+  license: "CC0-1.0"
+controls:
+  - id: ink
+    label: Ink
+    group: color
+    type: color
+    default: "#111111"
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#FF5678"
+---
+
+A loose hand-drawn doggie scene. Artwork from
+[Open Doodles](https://www.opendoodles.com) by Pablo Stanley under **CC0-1.0** — a public-domain
+dedication, so it carries no licence restriction and needs no attribution. Inlined, so the component
+installs with **no runtime dependency**.
+
+```tsx
+import { DoodleDoggie } from "@/components/ui/doodle-doggie";
+
+<DoodleDoggie className="w-full max-w-md" />
+<DoodleDoggie ink="#0f172a" accent="#6366f1" />
+```

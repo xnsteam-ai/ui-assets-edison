@@ -1,0 +1,32 @@
+---
+name: doodle-swinging
+type: registry:ui
+title: "Swinging"
+description: "A loose hand-drawn swinging scene, recolourable through ink and accent."
+meta:
+  sourceUrl: "https://www.opendoodles.com"
+  license: "CC0-1.0"
+controls:
+  - id: ink
+    label: Ink
+    group: color
+    type: color
+    default: "#111111"
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#FF5678"
+---
+
+A loose hand-drawn swinging scene. Artwork from
+[Open Doodles](https://www.opendoodles.com) by Pablo Stanley under **CC0-1.0** — a public-domain
+dedication, so it carries no licence restriction and needs no attribution. Inlined, so the component
+installs with **no runtime dependency**.
+
+```tsx
+import { DoodleSwinging } from "@/components/ui/doodle-swinging";
+
+<DoodleSwinging className="w-full max-w-md" />
+<DoodleSwinging ink="#0f172a" accent="#6366f1" />
+```

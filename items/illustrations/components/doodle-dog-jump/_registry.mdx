@@ -1,0 +1,32 @@
+---
+name: doodle-dog-jump
+type: registry:ui
+title: "Dog Jump"
+description: "A loose hand-drawn dog jump scene, recolourable through ink and accent."
+meta:
+  sourceUrl: "https://www.opendoodles.com"
+  license: "CC0-1.0"
+controls:
+  - id: ink
+    label: Ink
+    group: color
+    type: color
+    default: "#111111"
+  - id: accent
+    label: Accent
+    group: color
+    type: color
+    default: "#FF5678"
+---
+
+A loose hand-drawn dog jump scene. Artwork from
+[Open Doodles](https://www.opendoodles.com) by Pablo Stanley under **CC0-1.0** — a public-domain
+dedication, so it carries no licence restriction and needs no attribution. Inlined, so the component
+installs with **no runtime dependency**.
+
+```tsx
+import { DoodleDogJump } from "@/components/ui/doodle-dog-jump";
+
+<DoodleDogJump className="w-full max-w-md" />
+<DoodleDogJump ink="#0f172a" accent="#6366f1" />
+```
