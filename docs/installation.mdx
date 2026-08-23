@@ -8,7 +8,7 @@ Every UI Assets item installs with a single shadcn CLI command. There's nothing 
 front; the CLI resolves the item, copies its source into your project, and adds any missing
 dependencies.
 
-UI Assets is organized into nine separate registries, each with its own namespace:
+UI Assets is organized into ten separate registries, each with its own namespace:
 
 | Registry            | Namespace              |
 | ------------------- | ---------------------- |
@@ -21,6 +21,7 @@ UI Assets is organized into nine separate registries, each with its own namespac
 | Stark Images        | `@stark-images`        |
 | Stark Videos        | `@stark-videos`        |
 | Stark Backgrounds   | `@stark-backgrounds`   |
+| Stark External      | `@stark-external`      |
 
 ## Add the registries to your project
 
@@ -37,7 +38,8 @@ Add the registries you need to your project's `components.json`:
     "@stark-fonts": "https://ui-assets-edison.vercel.app/r/fonts/{name}.json",
     "@stark-images": "https://ui-assets-edison.vercel.app/r/images/{name}.json",
     "@stark-videos": "https://ui-assets-edison.vercel.app/r/videos/{name}.json",
-    "@stark-backgrounds": "https://ui-assets-edison.vercel.app/r/backgrounds/{name}.json"
+    "@stark-backgrounds": "https://ui-assets-edison.vercel.app/r/backgrounds/{name}.json",
+    "@stark-external": "https://ui-assets-edison.vercel.app/r/external/{name}.json"
   }
 }
 ```

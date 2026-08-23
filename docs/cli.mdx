@@ -5,7 +5,7 @@ order: 4
 ---
 
 Install a registry item with the command shown on its docs page. Each item belongs to one of the
-nine sub-registries (`components`, `templates`, `icons`, `logos`, `illustrations`, `fonts`, `images`, `videos`, `backgrounds`), scoped in its URL:
+ten sub-registries (`components`, `templates`, `icons`, `logos`, `illustrations`, `fonts`, `images`, `videos`, `backgrounds`, `external`), scoped in its URL:
 
 ```sh
 npx shadcn@latest add https://ui-assets-edison.vercel.app/r/components/example-card.json
@@ -21,3 +21,27 @@ npx shadcn@latest add https://ui-assets-edison.vercel.app/components/example-car
 ```
 
 Use the package manager selector on item pages to switch between npm, pnpm, yarn, bun, vite+, and deno commands.
+
+## Stark External
+
+`@stark-external` is an index of the best external libraries built on shadcn/ui. Browse it at
+[/external](/external) and copy the command for whatever you need — that is the unified CLI: one
+place to search, one command to run.
+
+What the command does depends on how the project is distributed, and the catalog labels each entry
+so it is never ambiguous:
+
+| Label | What the command does |
+| --- | --- |
+| **Mirrored** | `npx shadcn@latest add @stark-external/{name}` — the source is hosted here |
+| **Registry** | Points at the project's own shadcn registry URL, so it always installs their latest |
+| **Package** | `npm install …` — the project ships as a library, not copy-paste source |
+| **Browse** | No single command; components are copied per-item from the project's own site |
+
+Only **Mirrored** entries resolve through `@stark-external`. Those are limited to projects whose
+licence permits redistribution, and every mirrored file keeps a header naming the original author,
+their licence, and the source repository. Copyright stays with the original author.
+
+Anything under a copyleft licence (BillingSDK is GPL-3.0), any vendor SDK, and anything whose
+licence could not be confirmed is deliberately **not** mirrored — it is listed with a link and the
+project's own install command instead.

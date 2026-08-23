@@ -62,6 +62,12 @@ export const subRegistries = {
     description:
       "Stark's pure-CSS surface layer: background patterns and shaders, every value exposed as an editable custom property.",
   },
+  external: {
+    name: "Stark External",
+    namespace: "@stark-external",
+    description:
+      "A curated index of the best external shadcn-compatible libraries and components, with one unified CLI for finding and installing them.",
+  },
 } as const;
 
 export type SubRegistryKey = keyof typeof subRegistries;
